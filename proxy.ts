@@ -51,13 +51,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Protect every page route, including future routes such as:
-     * /, /chi-sono, /competenze, /contatti, etc.
-     *
-     * Excludes only Next.js internals and static assets required to render
-     * the app after authentication.
-     */
+    "/",
     "/((?!_next/static|_next/image|favicon.ico|sw.js|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|css|js)$).*)",
   ],
 };

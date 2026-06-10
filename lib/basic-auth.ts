@@ -1,6 +1,8 @@
+import { NextResponse } from "next/server";
 import type { BasicAuthConfig, BasicAuthCredentials } from "@/types/basic-auth";
 
-const AUTH_REALM = "Dr. Incarbone — Preview";
+// ASCII-only: non-ASCII chars in WWW-Authenticate cause a 500 in the proxy runtime
+const AUTH_REALM = "Dr. Incarbone Preview";
 let hasWarnedMissingEnv = false;
 
 /**
@@ -20,7 +22,21 @@ export function isBasicAuthEnabled(): boolean {
     return true;
   }
 
-  return process.env.VERCEL_ENV === "preview";
+  // Vercel preview deployments
+  if (process.env.VERCEL_ENV === "preview") {
+    return true;
+  }
+
+  // Local dev: enable automatically when credentials are present in .env.local
+  if (
+    !process.env.VERCEL_ENV &&
+    process.env.BASIC_AUTH_USER &&
+    process.env.BASIC_AUTH_PASSWORD
+  ) {
+    return true;
+  }
+
+  return false;
 }
 
 export function getBasicAuthConfig(): BasicAuthConfig {
@@ -105,11 +121,11 @@ function timingSafeEqual(a: string, b: string): boolean {
   return mismatch === 0;
 }
 
-export function createUnauthorizedResponse(realm: string): Response {
-  return new Response("Authentication required.", {
+export function createUnauthorizedResponse(realm: string) {
+  return new NextResponse("Authentication required.", {
     status: 401,
     headers: {
-      "WWW-Authenticate": `Basic realm="${realm}", charset="UTF-8"`,
+      "WWW-Authenticate": `Basic realm="${realm}"`,
     },
   });
 }
