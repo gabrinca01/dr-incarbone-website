@@ -6,7 +6,7 @@ import "./globals.css";
 
 const siteTitle = "Dr. Giorgio Incarbone | Neurochirurgo Milano e Novara";
 const siteDescription =
-  "Neurochirurgo con oltre 946 interventi. Specialista in neurochirurgia cranica, spinale, funzionale, vascolare e neuromodulazione. Consulenze a Milano e Novara.";
+  "Neurochirurgo con oltre 1330 interventi. Specialista in neurochirurgia cranica, spinale, funzionale / neuromodulatoria e vascolare. Consulenze a Milano, Arese e Novara.";
 
 export const metadata: Metadata = {
   title: siteTitle,

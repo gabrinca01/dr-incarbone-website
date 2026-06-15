@@ -39,6 +39,21 @@ export interface NeuromodulationTechnique {
   applications?: string[];
 }
 
+export interface NeuromodulationHighlight {
+  title: string;
+  description: string;
+}
+
+export interface ProfessionalExperience {
+  location: string;
+  detail: string;
+}
+
+export interface PathologyItem {
+  label: string;
+  subItems?: string[];
+}
+
 export interface EducationItem {
   institution: string;
   title: string;
@@ -76,7 +91,7 @@ export interface PathologyCategory {
   id: "cranial" | "spinal" | "vascular" | "functional";
   label: string;
   title: string;
-  conditions: string[];
+  conditions: PathologyItem[];
 }
 
 export interface ContactFormData {

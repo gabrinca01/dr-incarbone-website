@@ -76,6 +76,7 @@ export function Hero() {
                 width={380}
                 height={475}
                 priority
+                unoptimized
                 className="aspect-[4/5] h-auto w-full object-cover object-[center_15%]"
                 sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 380px"
               />

@@ -40,12 +40,12 @@ export function Navbar() {
       }`}
     >
       <nav
-        className="editorial-container flex h-[4.25rem] items-center justify-between gap-4 sm:h-[4.5rem] lg:h-[5rem] xl:grid xl:grid-cols-[minmax(0,auto)_1fr_minmax(0,auto)] xl:items-center xl:gap-8"
+        className="editorial-container flex min-h-[5.25rem] items-center justify-between gap-4 py-3 sm:min-h-[5.75rem] sm:py-3.5 md:min-h-[6.25rem] lg:min-h-[7.25rem] lg:py-4 xl:min-h-[8rem] xl:grid xl:grid-cols-[minmax(0,auto)_minmax(0,1fr)] xl:items-center xl:gap-10 2xl:min-h-[8.5rem] 2xl:gap-12"
         aria-label="Navigazione principale"
       >
         <a
           href="#home"
-          className="shrink-0 transition-opacity duration-300 hover:opacity-80"
+          className="block max-w-[58%] shrink-0 transition-opacity duration-300 hover:opacity-80 sm:max-w-none"
           aria-label="Dr. Giorgio Incarbone — Torna alla home"
           onClick={(event) => {
             event.preventDefault();
@@ -56,26 +56,26 @@ export function Navbar() {
           <Logo variant="navbar" />
         </a>
 
-        <ul className="hidden min-w-0 items-center justify-center gap-4 xl:flex xl:gap-5 2xl:gap-6">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href} className="shrink-0">
-              <a
-                href={link.href}
-                className="whitespace-nowrap text-[12px] font-medium tracking-wide text-muted transition-colors duration-300 hover:text-primary 2xl:text-[13px]"
-                onClick={(event) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  handleNavClick(link.href);
-                }}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden min-w-0 items-center justify-end gap-5 xl:flex 2xl:gap-6">
+          <ul className="flex min-w-0 items-center gap-3 2xl:gap-5">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href} className="shrink-0">
+                <a
+                  href={link.href}
+                  className="whitespace-nowrap text-[12px] font-medium tracking-wide text-muted transition-colors duration-300 hover:text-primary 2xl:text-[13px]"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    handleNavClick(link.href);
+                  }}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <div className="hidden shrink-0 xl:block">
-          <Button href="#contatti" size="sm">
+          <Button href="#contatti" size="sm" className="shrink-0">
             Richiedi consulenza
           </Button>
         </div>

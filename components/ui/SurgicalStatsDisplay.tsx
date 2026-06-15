@@ -10,13 +10,15 @@ export function SurgicalStatsDisplay({
   variant = "compact",
 }: SurgicalStatsDisplayProps) {
   const isFeatured = variant === "featured";
+  const columnClass =
+    stats.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3";
 
   return (
     <dl
-      className={`grid gap-6 ${
+      className={`mx-auto grid max-w-3xl gap-6 ${
         isFeatured
-          ? "sm:grid-cols-3 sm:gap-8"
-          : "grid-cols-1 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border/60"
+          ? `${columnClass} sm:gap-8`
+          : `grid-cols-1 ${columnClass} sm:gap-0 sm:divide-x sm:divide-border/60`
       }`}
     >
       {stats.map((stat) => (

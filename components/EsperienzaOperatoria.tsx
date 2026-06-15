@@ -13,7 +13,7 @@ export function EsperienzaOperatoria() {
         <SectionHeading
           id="esperienza-heading"
           eyebrow="Credibilità clinica"
-          title="Esperienza operatoria"
+          title="Esperienza chirurgica"
           subtitle="Un volume chirurgico significativo che testimonia l'esperienza maturata nelle principali aree della neurochirurgia."
           align="center"
           className="section-heading-gap"
@@ -22,10 +22,10 @@ export function EsperienzaOperatoria() {
         <SurgicalStatsDisplay stats={SURGICAL_STATS} variant="featured" />
 
         <p className="prose-narrow mx-auto mt-10 text-center text-base leading-[1.75] text-muted sm:mt-12 sm:text-lg">
-          Il Dr. Incarbone ha partecipato a oltre 946 interventi neurochirurgici,
-          assumendo il ruolo di primo operatore in più di 424 procedure e di
-          secondo operatore in oltre 522 interventi. Questa esperienza documentata
-          copre la neurochirurgia cranica, spinale, vascolare e funzionale,
+          Il Dr. Incarbone ha partecipato a oltre 1330 interventi neurochirurgici
+          complessivi, assumendo il ruolo di primo operatore in più di 630
+          procedure. Questa esperienza documentata copre la neurochirurgia
+          cranica, spinale, vascolare e funzionale / neuromodulazione,
           confermando un profilo chirurgico ampio e strutturato.
         </p>
       </div>

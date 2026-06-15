@@ -21,9 +21,8 @@ export function AreeEccellenza() {
               Aree di eccellenza
             </h2>
             <p className="prose-tight mt-4 text-base leading-[1.75] text-muted">
-              Neurochirurgia cranica, spinale, funzionale, vascolare e
-              neuromodulazione avanzata — un profilo clinico completo e
-              strutturato.
+              Neurochirurgia cranica, spinale, funzionale / neuromodulatoria e
+              vascolare — un profilo clinico completo e strutturato.
             </p>
           </div>
 

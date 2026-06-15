@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-2">
             <Logo variant="footer" />
-            <p className="mt-5 text-sm tracking-wide text-white/50 sm:text-base">
+            <p className="mt-6 text-sm tracking-wide text-white/50 sm:mt-7 sm:text-base">
               {SITE.locationsLabel}
             </p>
           </div>

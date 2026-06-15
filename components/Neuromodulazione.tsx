@@ -1,5 +1,8 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { NEUROMODULATION_TECHNIQUES } from "@/lib/site-data";
+import {
+  NEUROMODULATION_TECHNIQUES,
+  SPINAL_INFILTRATIONS_HIGHLIGHT,
+} from "@/lib/site-data";
 
 export function Neuromodulazione() {
   return (
@@ -15,8 +18,8 @@ export function Neuromodulazione() {
         <SectionHeading
           id="neuromodulazione-heading"
           eyebrow="Specializzazione distintiva"
-          title="Neuromodulazione e Neurochirurgia Funzionale"
-          subtitle="Tecniche avanzate di modulazione del sistema nervoso per il trattamento di patologie neurologiche e del dolore cronico refrattario."
+          title="Neuromodulazione"
+          subtitle="Tecniche di modulazione del sistema nervoso per il trattamento di patologie neurologiche e del dolore cronico refrattario."
           align="center"
           variant="dark"
           className="section-heading-gap"
@@ -28,14 +31,9 @@ export function Neuromodulazione() {
               key={technique.acronym}
               className="group rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-500 hover:border-accent/40 hover:bg-white/[0.07] sm:p-8"
             >
-              <div className="flex items-start justify-between gap-4">
-                <p className="font-display text-5xl font-semibold text-accent-light sm:text-6xl">
-                  {technique.acronym}
-                </p>
-                <span className="rounded-full border border-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                  Avanzata
-                </span>
-              </div>
+              <p className="font-display text-5xl font-semibold text-accent-light sm:text-6xl">
+                {technique.acronym}
+              </p>
               <h3 className="mt-4 text-lg font-medium text-white sm:text-xl">
                 {technique.title}
               </h3>
@@ -57,6 +55,15 @@ export function Neuromodulazione() {
             </article>
           ))}
         </div>
+
+        <article className="mt-6 rounded-2xl border border-accent-light/40 bg-accent-light/15 p-7 sm:mt-8 sm:p-9">
+          <h3 className="font-display text-xl font-medium uppercase tracking-wide text-white sm:text-2xl">
+            {SPINAL_INFILTRATIONS_HIGHLIGHT.title}
+          </h3>
+          <p className="mt-4 text-sm leading-[1.75] text-white/80 sm:text-[15px]">
+            {SPINAL_INFILTRATIONS_HIGHLIGHT.description}
+          </p>
+        </article>
       </div>
     </section>
   );

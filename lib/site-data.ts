@@ -5,8 +5,10 @@ import type {
   ExcellenceItem,
   FAQItem,
   NavLink,
+  NeuromodulationHighlight,
   NeuromodulationTechnique,
   PathologyCategory,
+  ProfessionalExperience,
   PublicationItem,
   ScientificActivity,
   StatItem,
@@ -19,22 +21,22 @@ export const SITE = {
   name: "Dr. Giorgio Incarbone",
   shortName: "Dr. Incarbone",
   profession: "Neurochirurgo",
-  tagline: "Neurochirurgia Cranica, Spinale e Funzionale",
+  tagline: "Neurochirurgia Cranica, Spinale e Funzionale / Neuromodulatoria",
   description:
-    "Diagnosi, consulenza specialistica e trattamento avanzato delle patologie del cervello, della colonna vertebrale e del sistema nervoso.",
+    "Diagnosi, consulenza specialistica e trattamento delle patologie del sistema nervoso centrale e della colonna vertebrale.",
   specializations: [
     "Neurochirurgia Cranica",
     "Neurochirurgia Spinale",
-    "Neurochirurgia Funzionale",
+    "Neurochirurgia Funzionale / Neuromodulatoria",
     "Neurochirurgia Vascolare",
-    "Neuromodulazione",
   ],
   phone: "+39 338 575 3053",
   phoneHref: "tel:+393385753053",
-  email: "giorgioincarbone@gmail.com",
-  emailHref: "mailto:giorgioincarbone@gmail.com",
-  locations: ["Milano", "Novara"],
-  locationsLabel: "Milano • Novara",
+  email: "giorgio.incarbone@asst-fbf-sacco.it",
+  emailHref: "mailto:giorgio.incarbone@asst-fbf-sacco.it",
+  locations: ["Milano", "Arese", "Novara"],
+  locationsLabel: "Milano • Arese • Novara",
+  cvHref: "/curriculum-dr-incarbone.pdf",
 } as const;
 
 export const NAV_LINKS: NavLink[] = [
@@ -43,21 +45,18 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Specializzazioni", href: "#specializzazioni-chirurgiche" },
   { label: "Patologie", href: "#patologie-trattate" },
   { label: "Esperienza", href: "#esperienza-operatoria" },
-  { label: "Contatti", href: "#contatti" },
 ];
 
 export const SURGICAL_STATS: SurgicalStat[] = [
-  { value: "946+", label: "Interventi Neurochirurgici" },
-  { value: "424+", label: "Primo Operatore" },
-  { value: "522+", label: "Secondo Operatore" },
+  { value: "1330+", label: "Interventi Neurochirurgici" },
+  { value: "630+", label: "Interventi da Primo Operatore" },
 ];
 
 export const EXCELLENCE_ITEMS: ExcellenceItem[] = [
   { label: "Neurochirurgia Cranica", featured: true },
   { label: "Neurochirurgia Spinale", featured: true },
-  { label: "Neurochirurgia Funzionale", featured: true },
+  { label: "Neurochirurgia Funzionale / Neuromodulatoria", featured: true },
   { label: "Neurochirurgia Vascolare", featured: true },
-  { label: "Neuromodulazione", featured: true },
   { label: "Second Opinion Specialistica" },
 ];
 
@@ -66,43 +65,47 @@ export const SURGICAL_SPECIALIZATIONS: SurgicalSpecialization[] = [
     title: "Neurochirurgia Cranica",
     icon: "cranial",
     conditions: [
-      "Gliomi",
-      "Meningiomi",
-      "Metastasi cerebrali",
-      "Adenomi ipofisari",
-      "Schwannomi",
-      "Craniofaringiomi",
+      "Asportazione di neoformazioni cerebrali benigne e maligne",
+      "Derivazione ventricolo-peritoneale",
+      "Derivazione spino-peritoneale",
+      "Terzoventricolocisternostomia",
+      "Approcci ventricoloscopici",
+      "Decompressione della fossa cranica posteriore",
+      "Osteosintesi delle fratture della teca cranica",
+      "Cranioplastica",
     ],
   },
   {
     title: "Neurochirurgia Vascolare",
     icon: "vascular",
     conditions: [
-      "Aneurismi cerebrali",
-      "MAV",
-      "Fistole artero-venose durali",
+      "Diagnosi e trattamento delle fistole artero-venose durali",
+      "Diagnosi e trattamento delle malformazioni artero-venose",
+      "Rimozione degli angiomi cavernosi",
     ],
   },
   {
     title: "Neurochirurgia Spinale",
     icon: "spinal",
     conditions: [
-      "Ernia cervicale",
-      "Ernia lombare",
-      "Stenosi vertebrale",
-      "Tumori spinali",
+      "Erniectomia lombare con approccio endoscopico",
+      "Erniectomia e artrodesi cervicale anteriore e posteriore",
+      "Decompressione del canale vertebrale",
+      "Artrodesi lombare posteriore o circonferenziale (TLIF)",
+      "Artrodesi cervicale posteriore con approcci combinati",
+      "Cifoplastica",
+      "Vertebroplastica",
+      "Asportazione di tumori spinali",
     ],
   },
   {
-    title: "Neurochirurgia Funzionale",
+    title: "Neurochirurgia Funzionale / Neuromodulazione",
     icon: "functional",
     conditions: [
-      "DBS",
-      "VNS",
-      "SCS",
-      "Dolore cronico",
-      "Parkinson",
-      "Epilessia",
+      "SCS (Spinal Cord Stimulation)",
+      "VNS (Vagus Nerve Stimulation)",
+      "Infusore intratecale",
+      "Decompressione del nervo trigemino",
     ],
   },
 ];
@@ -113,15 +116,16 @@ export const PATHOLOGY_CATEGORIES: PathologyCategory[] = [
     label: "Cranica",
     title: "Patologie craniche",
     conditions: [
-      "Gliomi",
-      "Meningiomi",
-      "Metastasi cerebrali",
-      "Adenomi ipofisari",
-      "Schwannomi",
-      "Craniofaringiomi",
-      "Tumori della base cranica",
-      "Idrocefalo",
-      "Nevralgia del trigemino",
+      { label: "Gliomi cerebrali" },
+      { label: "Metastasi cerebrali" },
+      { label: "Meningiomi cerebrali" },
+      { label: "Schwannomi" },
+      { label: "Adenomi ipofisari" },
+      { label: "Craniofaringiomi" },
+      { label: "Cisti della tasca di Rathke" },
+      { label: "Idrocefalo normoteso" },
+      { label: "Idrocefalo ostruttivo" },
+      { label: "Patologia traumatica cranica" },
     ],
   },
   {
@@ -129,12 +133,21 @@ export const PATHOLOGY_CATEGORIES: PathologyCategory[] = [
     label: "Spinale",
     title: "Patologie spinali",
     conditions: [
-      "Ernia cervicale",
-      "Ernia lombare",
-      "Stenosi vertebrale",
-      "Tumori spinali",
-      "Mielopatia cervicale",
-      "Spondilolistesi",
+      { label: "Ernia del disco cervicale" },
+      { label: "Ernia del disco dorsale" },
+      { label: "Ernia del disco lombare" },
+      { label: "Stenosi del canale vertebrale cervicale" },
+      { label: "Stenosi del canale vertebrale lombare" },
+      { label: "Spondilolistesi" },
+      { label: "Spondiloartrosi" },
+      { label: "Mielopatia cervicale" },
+      { label: "Fratture vertebrali" },
+      { label: "Cedimenti somatici vertebrali" },
+      { label: "Spondilodisciti" },
+      {
+        label: "Tumori spinali",
+        subItems: ["Ependimomi", "Schwannomi spinali", "Meningiomi spinali"],
+      },
     ],
   },
   {
@@ -142,26 +155,21 @@ export const PATHOLOGY_CATEGORIES: PathologyCategory[] = [
     label: "Vascolare",
     title: "Patologie vascolari",
     conditions: [
-      "Aneurismi cerebrali",
-      "MAV",
-      "Fistole artero-venose durali",
-      "Emorragia subaracnoidea",
+      { label: "Aneurismi cerebrali" },
+      { label: "MAV" },
+      { label: "Fistole artero-venose durali" },
+      { label: "Angiomi cavernosi" },
     ],
   },
   {
     id: "functional",
-    label: "Funzionale",
-    title: "Patologie funzionali",
+    label: "Funzionale / Neuromodulazione",
+    title: "Patologie funzionali e neuromodulazione",
     conditions: [
-      "Parkinson",
-      "Tremore essenziale",
-      "Distonia",
-      "Epilessia farmacoresistente",
-      "Dolore cronico",
-      "Spasticità",
-      "DBS",
-      "VNS",
-      "SCS",
+      { label: "Epilessia farmacoresistente" },
+      { label: "Dolore cronico" },
+      { label: "Spasticità" },
+      { label: "Depressione farmacoresistente" },
     ],
   },
 ];
@@ -170,26 +178,24 @@ export const CLINICAL_AREAS: ClinicalArea[] = [
   {
     title: "Neurochirurgia Cranica",
     description:
-      "Trattamento chirurgico delle patologie del cervello e delle strutture intracraniche, con approccio microchirurgico e pianificazione personalizzata.",
+      "Trattamento chirurgico delle patologie del sistema nervoso centrale, con approccio microchirurgico e pianificazione personalizzata.",
     icon: "cranial",
     conditions: [
-      "Gliomi",
-      "Meningiomi",
-      "Metastasi cerebrali",
-      "Adenomi ipofisari",
-      "Schwannomi",
-      "Craniofaringiomi",
+      "Asportazione di neoformazioni cerebrali benigne e maligne",
+      "Derivazione ventricolo-peritoneale",
+      "Approcci ventricoloscopici",
+      "Cranioplastica",
     ],
   },
   {
     title: "Neurochirurgia Vascolare",
     description:
-      "Gestione delle patologie vascolari del sistema nervoso centrale, dalla diagnosi alla strategia terapeutica chirurgica o endovascolare.",
+      "Gestione delle patologie vascolari del sistema nervoso centrale, dalla diagnosi alla strategia terapeutica chirurgica.",
     icon: "vascular",
     conditions: [
-      "Aneurismi cerebrali",
-      "MAV",
       "Fistole artero-venose durali",
+      "Malformazioni artero-venose",
+      "Angiomi cavernosi",
     ],
   },
   {
@@ -198,51 +204,58 @@ export const CLINICAL_AREAS: ClinicalArea[] = [
       "Interventi sulla colonna vertebrale e sul midollo spinale per patologie degenerative, traumatiche e tumorali.",
     icon: "spinal",
     conditions: [
-      "Ernia cervicale",
-      "Ernia lombare",
-      "Stenosi vertebrale",
-      "Tumori spinali",
+      "Erniectomia lombare endoscopica",
+      "Decompressione del canale vertebrale",
+      "Artrodesi lombare e cervicale",
+      "Asportazione di tumori spinali",
     ],
   },
   {
-    title: "Neurochirurgia Funzionale",
+    title: "Neurochirurgia Funzionale / Neuromodulazione",
     description:
-      "Approccio specialistico alle patologie del movimento, dell'epilessia e del dolore cronico refrattario ai trattamenti convenzionali.",
+      "Approccio specialistico alle patologie refrattarie ai trattamenti convenzionali mediante neuromodulazione e chirurgia funzionale.",
     icon: "functional",
     conditions: [
-      "DBS",
-      "VNS",
       "SCS",
-      "Dolore cronico",
-      "Parkinson",
-      "Epilessia",
+      "VNS",
+      "Infusore intratecale",
+      "Decompressione del nervo trigemino",
     ],
   },
 ];
 
 export const NEUROMODULATION_TECHNIQUES: NeuromodulationTechnique[] = [
   {
-    acronym: "DBS",
-    title: "Deep Brain Stimulation",
-    description:
-      "Stimolazione cerebrale profonda per il trattamento di Parkinson, tremore essenziale, distonia e sindromi del movimento selezionate. Tecnica di riferimento nella neurochirurgia funzionale moderna.",
-    applications: ["Parkinson", "Tremore essenziale", "Distonia"],
-  },
-  {
     acronym: "VNS",
     title: "Vagus Nerve Stimulation",
     description:
-      "Stimolazione del nervo vago per patologie neurologiche selezionate, con monitoraggio accurato dell'efficacia terapeutica e validazione scientifica dei risultati nel tempo.",
-    applications: ["Epilessia farmacoresistente", "Patologie neurologiche selezionate"],
+      "Stimolazione del nervo vago per patologie neurologiche selezionate, con monitoraggio accurato dell'efficacia terapeutica nel tempo.",
+    applications: [
+      "Epilessia farmacoresistente",
+      "Depressione resistente ai farmaci",
+    ],
   },
   {
     acronym: "SCS",
     title: "Spinal Cord Stimulation",
     description:
-      "Neuromodulazione midollare per il trattamento del dolore cronico refrattario e di specifiche sindromi dolorose neuropatiche e viscerali.",
+      "Neuromodulazione midollare per il trattamento del dolore cronico refrattario e di specifiche sindromi dolorose neuropatiche.",
     applications: ["Dolore cronico", "Sindromi dolorose neuropatiche"],
   },
+  {
+    acronym: "II",
+    title: "Infusore Intratecale",
+    description:
+      "Dispositivo medico impiantabile utilizzato per somministrare piccolissime e precise dosi di farmaco direttamente nel liquido cerebrospinale (liquor) che circonda il midollo spinale e il cervello.",
+    applications: ["Spasticità", "Dolore cronico"],
+  },
 ];
+
+export const SPINAL_INFILTRATIONS_HIGHLIGHT: NeuromodulationHighlight = {
+  title: "Infiltrazioni della colonna vertebrale",
+  description:
+    "Le infiltrazioni della colonna vertebrale sono trattamenti mininvasivi che prevedono l'iniezione di farmaci vicino alle strutture nervose o articolari responsabili del dolore. Sono utilizzate per ridurre l'infiammazione e migliorare la sintomatologia dolorosa. L'effetto può durare diversi mesi.",
+};
 
 export const EDUCATION_ITEMS: EducationItem[] = [
   {
@@ -262,21 +275,32 @@ export const EDUCATION_ITEMS: EducationItem[] = [
   },
 ];
 
+export const PROFESSIONAL_EXPERIENCES: ProfessionalExperience[] = [
+  {
+    location: "Novara",
+    detail: "Attività neurochirurgica in ambito ospedaliero e consulenze specialistiche.",
+  },
+  {
+    location: "Vigevano",
+    detail: "Esperienza clinica e chirurgica in neurochirurgia cranica, spinale e neuromodulazione.",
+  },
+];
+
 export const WHY_CHOOSE_ITEMS: CredibilityItem[] = [
   {
-    title: "Esperienza Operatoria Documentata",
+    title: "Esperienza Chirurgica",
     description:
-      "Oltre 946 interventi neurochirurgici, con ruolo di primo operatore in più di 424 procedure di elevata complessità.",
+      "Oltre 1330 interventi neurochirurgici complessivi, con più di 630 procedure svolte da primo operatore.",
   },
   {
     title: "Approccio Multidisciplinare",
     description:
-      "Collaborazione con neurologi, neuroradiologi, oncologi e fisiatri per definire percorsi terapeutici integrati e condivisi.",
+      "Collaborazione con neurologi, neuroradiologi, oncologi, fisiatri e altri colleghi neurochirurghi per definire percorsi terapeutici integrati e condivisi.",
   },
   {
     title: "Tecniche Avanzate",
     description:
-      "Microchirurgia, neurochirurgia vascolare, neuromodulazione DBS, VNS e SCS con pianificazione preoperatoria personalizzata.",
+      "Endoscopia ventricolare, chirurgia mininvasiva spinale e neuromodulazione (VNS, SCS, infusore intratecale) con pianificazione preoperatoria personalizzata.",
   },
   {
     title: "Percorso Personalizzato",
@@ -286,8 +310,8 @@ export const WHY_CHOOSE_ITEMS: CredibilityItem[] = [
 ];
 
 export const STATS: StatItem[] = [
-  { value: "946+", label: "Interventi neurochirurgici" },
-  { value: "5", label: "Aree di specializzazione" },
+  { value: "1330+", label: "Interventi neurochirurgici" },
+  { value: "630+", label: "Interventi da primo operatore" },
   { value: "50+", label: "Pubblicazioni scientifiche" },
 ];
 
@@ -340,7 +364,7 @@ export const SCIENTIFIC_ACTIVITIES: ScientificActivity[] = [
   {
     title: "Corsi specialistici",
     description:
-      "Formazione avanzata e aggiornamento su tecniche microchirurgiche, neuromodulazione e neurochirurgia funzionale.",
+      "Formazione e aggiornamento su tecniche microchirurgiche, neuromodulazione e chirurgia mininvasiva spinale.",
     icon: "courses",
   },
   {
@@ -362,7 +386,7 @@ export const PUBLICATIONS: PublicationItem[] = [
   },
   {
     title: "Neuromodulation in visceral pain",
-    context: "Neurochirurgia funzionale",
+    context: "Neuromodulazione",
   },
   {
     title: "Cauda equina cavernoma at level L1",
@@ -374,7 +398,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Quando rivolgersi a un neurochirurgo?",
     answer:
-      "È opportuno consultare un neurochirurgo in presenza di diagnosi di patologie cerebrali, spinali, vascolari o del sistema nervoso, sintomi neurologici persistenti, o quando si necessita di una valutazione specialistica per definire l'indicazione chirurgica o neuromodulatrice.",
+      "È opportuno consultare un neurochirurgo in presenza di diagnosi di patologie del sistema nervoso centrale o della colonna vertebrale, sintomi neurologici persistenti, o quando si necessita di una valutazione specialistica per definire l'indicazione chirurgica o neuromodulatrice.",
   },
   {
     question: "Quando richiedere una seconda opinione?",
@@ -389,6 +413,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Come prenotare una consulenza?",
     answer:
-      "È possibile prenotare compilando il modulo di contatto, inviando un'email a giorgioincarbone@gmail.com o telefonando al +39 338 575 3053. Il team risponderà per fissare un appuntamento a Milano o Novara.",
+      "È possibile prenotare compilando il modulo di contatto, inviando un'email a giorgio.incarbone@asst-fbf-sacco.it o telefonando al +39 338 575 3053. Il team risponderà per fissare un appuntamento a Milano, Arese o Novara.",
   },
 ];

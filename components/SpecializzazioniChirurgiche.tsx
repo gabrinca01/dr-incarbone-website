@@ -10,14 +10,15 @@ export function SpecializzazioniChirurgiche() {
       aria-labelledby="specializzazioni-heading"
     >
       <div className="editorial-container">
-        <SectionHeading
-          id="specializzazioni-heading"
-          eyebrow="Competenze operatorie"
-          title="Specializzazioni chirurgiche"
-          subtitle="Quattro aree di intervento che riflettono l'ampiezza e la profondità dell'esperienza clinica del Dr. Incarbone."
-          align="center"
-          className="section-heading-gap"
-        />
+        <div data-scroll-target className="section-heading-gap mx-auto max-w-2xl text-center">
+          <SectionHeading
+            id="specializzazioni-heading"
+            eyebrow="Competenze operatorie"
+            title="Specializzazioni chirurgiche"
+            subtitle="Quattro aree di intervento che riflettono l'ampiezza e la profondità dell'esperienza clinica del Dr. Incarbone."
+            align="center"
+          />
+        </div>
 
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           {SURGICAL_SPECIALIZATIONS.map((area) => (

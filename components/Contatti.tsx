@@ -59,7 +59,7 @@ export function Contatti() {
     >
       <div className="editorial-container">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <div>
+          <div data-scroll-target>
             <SectionHeading
               id="contatti-heading"
               eyebrow="Contatti"

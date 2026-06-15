@@ -4,7 +4,7 @@ import { SITE, STATS } from "@/lib/site-data";
 const credentials = [
   {
     title: "Esperienza operatoria",
-    text: "Oltre 946 interventi neurochirurgici, con ruolo di primo operatore in più di 424 procedure e secondo operatore in oltre 522 interventi.",
+    text: "Oltre 1330 interventi neurochirurgici complessivi e oltre 630 interventi da primo operatore.",
   },
   {
     title: "Formazione",
@@ -16,7 +16,7 @@ const credentials = [
   },
   {
     title: "Attività specialistica",
-    text: "Consulenze e pianificazione chirurgica nelle aree cranica, spinale, vascolare e funzionale, con particolare competenza in neuromodulazione.",
+    text: "Consulenze e pianificazione chirurgica nelle aree cranica, spinale, vascolare e funzionale / neuromodulazione.",
   },
 ];
 
@@ -29,28 +29,31 @@ export function ChiSono() {
     >
       <div className="editorial-container">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <SectionHeading
-            id="chi-sono-heading"
-            eyebrow="Profilo professionale"
-            title="Chi è il Dr. Giorgio Incarbone"
-            subtitle="Neurochirurgo con un profilo chirurgico ampio e documentato: cranica, spinale, vascolare, funzionale e neuromodulazione, con un approccio che unisce rigore scientifico e attenzione al rapporto con il paziente."
-          />
+          <div data-scroll-target>
+            <SectionHeading
+              id="chi-sono-heading"
+              eyebrow="Profilo professionale"
+              title="Chi è il Dr. Giorgio Incarbone"
+              subtitle="Neurochirurgo con un profilo chirurgico ampio e documentato: cranica, spinale, vascolare, funzionale / neuromodulazione, con un approccio che unisce rigore scientifico e attenzione al rapporto con il paziente."
+            />
+          </div>
 
           <div className="prose-narrow space-y-5 text-base leading-[1.75] text-muted sm:text-[17px]">
             <p>
               Il Dr. Giorgio Incarbone è neurochirurgo specializzato
               nell&apos;inquadramento diagnostico e nel trattamento chirurgico
-              delle patologie del sistema nervoso centrale e periferico. La sua
-              pratica clinica abbraccia la neurochirurgia cranica, spinale,
-              vascolare e funzionale, con particolare competenza nelle tecniche
-              di neuromodulazione avanzata — DBS, VNS e SCS.
+              delle patologie del sistema nervoso centrale e della colonna
+              vertebrale. La sua attività clinica abbraccia la neurochirurgia
+              cranica, spinale, vascolare e funzionale / neuromodulazione, con
+              ulteriore esperienza nelle tecniche di neuromodulazione — VNS,
+              SCS e infusore intratecale.
             </p>
             <p>
-              Con oltre 946 interventi neurochirurgici alle spalle e consulenze
-              disponibili a {SITE.locations.join(" e ")}, offre un ambiente di
-              pratica privata in cui il paziente accede direttamente a una
-              valutazione specialistica e costruisce insieme al medico il
-              percorso terapeutico più appropriato.
+              Con oltre 1330 interventi neurochirurgici complessivi e oltre 630
+              interventi da primo operatore, offre consulenze specialistiche a{" "}
+              {SITE.locations.join(", ")}. Il paziente accede a una valutazione
+              dedicata e costruisce insieme al medico il percorso terapeutico
+              più appropriato.
             </p>
 
             <div className="grid gap-4 pt-4 sm:grid-cols-2">

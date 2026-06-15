@@ -59,14 +59,34 @@ export function CategoryTabs({ categories }: CategoryTabsProps) {
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {activeCategory.conditions.map((condition) => (
               <li
-                key={condition}
-                className="flex items-center gap-2.5 rounded-xl border border-border/60 bg-surface px-4 py-3.5 text-sm text-primary"
+                key={condition.label}
+                className={`rounded-xl border border-border/60 bg-surface px-4 py-3.5 text-sm text-primary ${
+                  condition.subItems ? "sm:col-span-2 lg:col-span-3" : ""
+                }`}
               >
-                <span
-                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-                  aria-hidden="true"
-                />
-                {condition}
+                <div className="flex items-center gap-2.5">
+                  <span
+                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                    aria-hidden="true"
+                  />
+                  {condition.label}
+                </div>
+                {condition.subItems && (
+                  <ul className="mt-3 space-y-2 border-t border-border/50 pt-3 pl-5">
+                    {condition.subItems.map((subItem) => (
+                      <li
+                        key={subItem}
+                        className="flex items-center gap-2 text-sm text-muted"
+                      >
+                        <span
+                          className="h-1 w-1 shrink-0 rounded-full bg-accent/60"
+                          aria-hidden="true"
+                        />
+                        {subItem}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>

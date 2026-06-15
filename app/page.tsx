@@ -14,7 +14,6 @@ import { PercheScegliere } from "@/components/PercheScegliere";
 import { PercorsoPaziente } from "@/components/PercorsoPaziente";
 import { PubblicazioniSelezionate } from "@/components/PubblicazioniSelezionate";
 import { SpecializzazioniChirurgiche } from "@/components/SpecializzazioniChirurgiche";
-import { StatisticheChirurgiche } from "@/components/StatisticheChirurgiche";
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <StatisticheChirurgiche />
         <AreeEccellenza />
         <ChiSono />
         <SpecializzazioniChirurgiche />

@@ -25,10 +25,9 @@ export function getPhysicianSchema() {
       "Functional Neurosurgery",
       "Vascular Neurosurgery",
       "Neuromodulation",
-      "Deep Brain Stimulation",
       "Vagus Nerve Stimulation",
       "Spinal Cord Stimulation",
-      "Brain Tumors",
+      "Intrathecal Drug Delivery",
       "Neurosurgical Second Opinion",
     ],
     availableService: {

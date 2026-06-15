@@ -1,5 +1,10 @@
+import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { EDUCATION_ITEMS } from "@/lib/site-data";
+import {
+  EDUCATION_ITEMS,
+  PROFESSIONAL_EXPERIENCES,
+  SITE,
+} from "@/lib/site-data";
 
 export function Formazione() {
   return (
@@ -17,6 +22,12 @@ export function Formazione() {
           align="center"
           className="section-heading-gap"
         />
+
+        <div className="mb-10 flex justify-center">
+          <Button href={SITE.cvHref} variant="secondary" size="lg">
+            Scarica Curriculum
+          </Button>
+        </div>
 
         <ol className="relative mx-auto max-w-2xl">
           {EDUCATION_ITEMS.map((item, index) => (
@@ -47,6 +58,24 @@ export function Formazione() {
             </li>
           ))}
         </ol>
+
+        <div className="mx-auto mt-16 max-w-2xl">
+          <h3 className="font-display mb-8 text-2xl font-medium text-primary">
+            Esperienze professionali
+          </h3>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {PROFESSIONAL_EXPERIENCES.map((experience) => (
+              <li key={experience.location} className="premium-card p-5 sm:p-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+                  {experience.location}
+                </p>
+                <p className="mt-2 text-sm leading-[1.7] text-muted">
+                  {experience.detail}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
