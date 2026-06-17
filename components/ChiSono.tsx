@@ -74,7 +74,7 @@ export function ChiSono() {
         <dl className="mt-16 grid gap-8 border-t border-border/60 pt-12 sm:grid-cols-3 sm:gap-10 lg:mt-20 lg:pt-16">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center sm:text-left">
-              <dt className="font-display text-4xl font-semibold text-primary lg:text-5xl">
+              <dt className="font-display text-4xl font-bold text-primary lg:text-5xl">
                 {stat.value}
               </dt>
               <dd className="mt-2 text-sm text-muted sm:text-base">{stat.label}</dd>

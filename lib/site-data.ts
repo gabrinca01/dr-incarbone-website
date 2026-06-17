@@ -316,7 +316,7 @@ export const PROFESSIONAL_EXPERIENCES: ProfessionalExperience[] = [
   },
   {
     location: "Vigevano",
-    detail: "Esperienza clinica e chirurgica in neurochirurgia cranica, spinale e neuromodulazione.",
+    detail: "Patologia spinale mini invasiva.",
   },
 ];
 

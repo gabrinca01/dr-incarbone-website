@@ -31,7 +31,7 @@ export function SurgicalStatsDisplay({
           }
         >
           <dt
-            className={`font-display font-semibold text-accent ${
+            className={`font-display font-bold text-accent ${
               isFeatured
                 ? "text-5xl sm:text-6xl lg:text-7xl"
                 : "text-4xl sm:text-5xl lg:text-[3.25rem]"

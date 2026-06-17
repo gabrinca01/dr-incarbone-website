@@ -1,4 +1,3 @@
-import { Cormorant_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 
 export const miranoExtended = localFont({
@@ -45,12 +44,5 @@ export const miranoExtended = localFont({
     },
   ],
   variable: "--font-mirano",
-  display: "swap",
-});
-
-export const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });

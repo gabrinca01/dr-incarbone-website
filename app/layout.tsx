@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { cormorant, miranoExtended } from "@/lib/fonts";
+import { miranoExtended } from "@/lib/fonts";
 import { getPhysicianSchema } from "@/lib/schema";
 import "./globals.css";
 
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${miranoExtended.variable} ${cormorant.variable} ${miranoExtended.className} h-full scroll-smooth antialiased`}
+      className={`${miranoExtended.variable} ${miranoExtended.className} h-full scroll-smooth antialiased`}
     >
       <head>
         <script

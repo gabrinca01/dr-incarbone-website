@@ -30,7 +30,7 @@
   --color-muted: var(--muted);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-mirano);
-  --font-display: var(--font-cormorant);
+  --font-display: var(--font-mirano);
 }
 
 html {
@@ -60,9 +60,8 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-mirano);
+  letter-spacing: -0.01em;
 }
 
 .prose-narrow {
@@ -247,4 +246,13 @@ body {
 
 .animate-fade-up-delay-3 {
   animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.leaflet-container {
+  z-index: 0;
+  font: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
 }

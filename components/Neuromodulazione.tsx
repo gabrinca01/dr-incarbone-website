@@ -28,7 +28,7 @@ export function Neuromodulazione() {
               key={technique.acronym}
               className="group rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-500 hover:border-accent/40 hover:bg-white/[0.07] sm:p-8"
             >
-              <p className="font-display text-5xl font-semibold text-accent-light sm:text-6xl">
+              <p className="font-display text-5xl font-bold text-accent-light sm:text-6xl">
                 {technique.acronym}
               </p>
               <h3 className="mt-4 text-lg font-medium text-white sm:text-xl">

@@ -6,40 +6,45 @@ interface LogoProps {
 }
 
 const LOGO_TEXT = {
-  name: "GIORGIO INCARBONE",
-  profession: "NEUROCHIRURGO",
+  src: "/logo-text.png",
+  width: 1109,
+  height: 122,
 } as const;
+
+const PSD_ICON_HEIGHT = 664;
+const PSD_TEXT_WIDTH = LOGO_TEXT.width;
+const PSD_TEXT_HEIGHT = LOGO_TEXT.height;
+
+const TEXT_WIDTH_SCALE = 1.48;
+const TEXT_HEIGHT_SCALE = 1.24;
 
 const VARIANTS = {
   navbar: {
-    icon: "h-16 w-auto sm:h-[4.5rem] md:h-[4.75rem] lg:h-[4.5rem] xl:h-[4.1rem] 2xl:h-[5.125rem]",
-    gap: "gap-2 sm:gap-2.5 md:gap-3 xl:gap-2.5 2xl:gap-3.5",
-    name: "text-[0.7rem] font-bold uppercase tracking-[0.16em] sm:text-[0.78rem] md:text-[0.84rem] lg:text-[0.82rem] xl:text-[0.78rem] 2xl:text-[0.95rem]",
-    profession:
-      "mt-0.5 text-[0.56rem] font-light uppercase tracking-[0.42em] sm:mt-1 sm:text-[0.62rem] md:text-[0.68rem] lg:text-[0.66rem] xl:text-[0.62rem] 2xl:text-[0.78rem]",
+    iconHeight:
+      "[--logo-icon-h:4.25rem] sm:[--logo-icon-h:4.75rem] md:[--logo-icon-h:5rem] lg:[--logo-icon-h:4.75rem] xl:[--logo-icon-h:4.35rem] 2xl:[--logo-icon-h:5.375rem]",
+    gap: "gap-2.5 sm:gap-3 md:gap-3.5 xl:gap-3 2xl:gap-4",
   },
   footer: {
-    icon: "h-20 w-auto sm:h-24 md:h-28 lg:h-32",
-    gap: "gap-3 sm:gap-3.5 md:gap-4",
-    name: "text-[0.72rem] font-bold uppercase tracking-[0.2em] sm:text-[0.82rem] md:text-[0.9rem] lg:text-[1rem]",
-    profession:
-      "mt-1 text-[0.58rem] font-light uppercase tracking-[0.52em] sm:text-[0.66rem] md:text-[0.72rem] lg:text-[0.8rem]",
+    iconHeight:
+      "[--logo-icon-h:5.25rem] sm:[--logo-icon-h:6.25rem] md:[--logo-icon-h:7.25rem] lg:[--logo-icon-h:8.25rem]",
+    gap: "gap-3 sm:gap-4 md:gap-4",
   },
   subtle: {
-    icon: "h-16 w-auto sm:h-20 md:h-24",
+    iconHeight:
+      "[--logo-icon-h:4.25rem] sm:[--logo-icon-h:5.25rem] md:[--logo-icon-h:6rem]",
     gap: "gap-2.5 sm:gap-3 md:gap-3.5",
-    name: "text-[0.74rem] font-bold uppercase tracking-[0.2em] sm:text-[0.85rem] md:text-[0.95rem]",
-    profession:
-      "mt-1 text-[0.6rem] font-light uppercase tracking-[0.52em] sm:text-[0.7rem] md:text-[0.78rem]",
   },
 } as const;
 
 export function Logo({ variant = "navbar", className = "" }: LogoProps) {
   const styles = VARIANTS[variant];
 
+  const textWidth = `calc(var(--logo-icon-h) * ${PSD_TEXT_WIDTH} / ${PSD_ICON_HEIGHT} * ${TEXT_WIDTH_SCALE})`;
+  const textHeight = `calc(var(--logo-icon-h) * ${PSD_TEXT_HEIGHT} / ${PSD_ICON_HEIGHT} * ${TEXT_HEIGHT_SCALE})`;
+
   const lockup = (
     <div
-      className={`inline-flex max-w-full min-w-0 items-center ${styles.gap} ${className}`}
+      className={`inline-flex max-w-full min-w-0 items-center ${styles.iconHeight} ${styles.gap} ${className}`}
       aria-label="Dr. Giorgio Incarbone — Neurochirurgo"
     >
       <Image
@@ -50,16 +55,18 @@ export function Logo({ variant = "navbar", className = "" }: LogoProps) {
         height={664}
         priority={variant === "navbar"}
         unoptimized
-        className={`shrink-0 object-contain object-left ${styles.icon}`}
+        className="h-[length:var(--logo-icon-h)] w-auto shrink-0 object-contain object-left"
       />
-      <div className="flex min-w-0 flex-col justify-center leading-none">
-        <span className={`whitespace-nowrap text-primary ${styles.name}`}>
-          {LOGO_TEXT.name}
-        </span>
-        <span className={`whitespace-nowrap text-primary ${styles.profession}`}>
-          {LOGO_TEXT.profession}
-        </span>
-      </div>
+      <Image
+        src={LOGO_TEXT.src}
+        alt=""
+        aria-hidden
+        width={LOGO_TEXT.width}
+        height={LOGO_TEXT.height}
+        unoptimized
+        style={{ width: textWidth, height: textHeight }}
+        className="shrink-0 object-fill object-left"
+      />
     </div>
   );
 

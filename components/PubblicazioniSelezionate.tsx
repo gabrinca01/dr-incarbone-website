@@ -21,7 +21,7 @@ export function PubblicazioniSelezionate() {
           {PUBLICATIONS.map((pub, index) => (
             <li key={pub.title} className="group py-6 sm:py-7">
               <div className="flex gap-5 sm:gap-6">
-                <span className="font-display mt-0.5 w-8 shrink-0 text-2xl font-semibold text-accent/40">
+                <span className="font-display mt-0.5 w-8 shrink-0 text-2xl font-bold text-accent/40">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>

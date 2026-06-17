@@ -31,7 +31,7 @@ export function PercorsoPaziente() {
                 />
               )}
 
-              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-card font-display text-base font-semibold text-accent shadow-card">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-card font-display text-base font-bold text-accent shadow-card">
                 {step.step}
               </div>
 
