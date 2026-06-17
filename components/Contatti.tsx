@@ -97,9 +97,15 @@ export function Contatti() {
                   icon: <LocationIcon />,
                   label: "Sedi",
                   content: (
-                    <p className="text-xl text-muted">
-                      {SITE.locations.join(" • ")}
-                    </p>
+                    <div>
+                      <p className="text-xl text-muted">{SITE.locationsLabel}</p>
+                      <a
+                        href="#sedi-consulenza"
+                        className="mt-2 inline-flex text-sm font-medium text-accent transition-colors duration-300 hover:text-accent-hover"
+                      >
+                        Vedi mappa e recapiti per la prenotazione
+                      </a>
+                    </div>
                   ),
                 },
               ].map((item) => (

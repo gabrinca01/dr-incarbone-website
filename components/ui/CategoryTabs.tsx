@@ -61,10 +61,12 @@ export function CategoryTabs({ categories }: CategoryTabsProps) {
               <li
                 key={condition.label}
                 className={`rounded-xl border border-border/60 bg-surface px-4 py-3.5 text-sm text-primary ${
-                  condition.subItems ? "sm:col-span-2 lg:col-span-3" : ""
+                  condition.subItems
+                    ? "sm:col-span-2 lg:col-span-3"
+                    : "flex items-center"
                 }`}
               >
-                <div className="flex items-center gap-2.5">
+                <div className="flex w-full items-center gap-2.5">
                   <span
                     className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
                     aria-hidden="true"

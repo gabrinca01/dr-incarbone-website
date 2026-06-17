@@ -2,6 +2,10 @@ import { ClinicalAreaIcon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SURGICAL_SPECIALIZATIONS } from "@/lib/site-data";
 
+function spansFullWidth(condition: string) {
+  return condition.length >= 24;
+}
+
 export function SpecializzazioniChirurgiche() {
   return (
     <section
@@ -14,17 +18,17 @@ export function SpecializzazioniChirurgiche() {
           <SectionHeading
             id="specializzazioni-heading"
             eyebrow="Competenze operatorie"
-            title="Specializzazioni chirurgiche"
+            title="Aree di competenza"
             subtitle="Quattro aree di intervento che riflettono l'ampiezza e la profondità dell'esperienza clinica del Dr. Incarbone."
             align="center"
           />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8">
           {SURGICAL_SPECIALIZATIONS.map((area) => (
             <article
               key={area.title}
-              className="premium-card p-8 sm:p-9 lg:p-10"
+              className="premium-card min-w-0 p-8 sm:p-9 lg:p-10"
             >
               <div className="mb-6 inline-flex rounded-xl bg-accent/[0.06] p-3.5">
                 <ClinicalAreaIcon icon={area.icon} />
@@ -32,17 +36,21 @@ export function SpecializzazioniChirurgiche() {
               <h3 className="font-display text-2xl font-medium text-primary sm:text-3xl">
                 {area.title}
               </h3>
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-6 grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                 {area.conditions.map((condition) => (
                   <li
                     key={condition}
-                    className="flex items-center gap-2.5 text-sm text-primary sm:text-[15px]"
+                    className={`flex min-w-0 items-start gap-2.5 text-sm text-primary sm:text-[15px] ${
+                      spansFullWidth(condition) ? "sm:col-span-2" : ""
+                    }`}
                   >
                     <span
-                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
                       aria-hidden="true"
                     />
-                    {condition}
+                    <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+                      {condition}
+                    </span>
                   </li>
                 ))}
               </ul>

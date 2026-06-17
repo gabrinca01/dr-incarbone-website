@@ -11,12 +11,12 @@ export function AreeEccellenza() {
       <div className="editorial-container">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
           <div className="max-w-md shrink-0">
-            <p className="eyebrow-rule text-[10px] font-light uppercase tracking-[0.24em] text-accent">
+            <p className="eyebrow-rule text-[10px] font-bold uppercase tracking-[0.24em] text-accent">
               Profilo chirurgico
             </p>
             <h2
               id="eccellenza-heading"
-              className="font-display mt-4 text-3xl font-semibold leading-[1.12] text-primary sm:text-4xl"
+              className="font-display mt-4 text-3xl font-bold leading-[1.12] text-primary sm:text-4xl"
             >
               Aree di eccellenza
             </h2>

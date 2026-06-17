@@ -44,6 +44,28 @@ export interface NeuromodulationHighlight {
   description: string;
 }
 
+export interface AdditionalService {
+  title: string;
+  description: string;
+}
+
+export interface ConsultationLocation {
+  id: string;
+  city: string;
+  institutionName?: string;
+  address?: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+  websiteUrl?: string;
+  websiteLabel?: string;
+  bookingPhone?: string;
+  bookingPhoneHref?: string;
+  bookingNote?: string;
+  confirmed: boolean;
+}
+
 export interface ProfessionalExperience {
   location: string;
   detail: string;

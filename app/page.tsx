@@ -12,7 +12,9 @@ import { Neuromodulazione } from "@/components/Neuromodulazione";
 import { PatologieTrattate } from "@/components/PatologieTrattate";
 import { PercheScegliere } from "@/components/PercheScegliere";
 import { PercorsoPaziente } from "@/components/PercorsoPaziente";
+import { PrestazioniAggiuntive } from "@/components/PrestazioniAggiuntive";
 import { PubblicazioniSelezionate } from "@/components/PubblicazioniSelezionate";
+import { SediConsulenza } from "@/components/SediConsulenza";
 import { SpecializzazioniChirurgiche } from "@/components/SpecializzazioniChirurgiche";
 
 export default function Home() {
@@ -21,11 +23,13 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <SediConsulenza />
         <AreeEccellenza />
         <ChiSono />
         <SpecializzazioniChirurgiche />
         <PatologieTrattate />
         <Neuromodulazione />
+        <PrestazioniAggiuntive />
         <EsperienzaOperatoria />
         <PercheScegliere />
         <Formazione />

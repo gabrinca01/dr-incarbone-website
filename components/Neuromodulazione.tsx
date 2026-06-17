@@ -1,8 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import {
-  NEUROMODULATION_TECHNIQUES,
-  SPINAL_INFILTRATIONS_HIGHLIGHT,
-} from "@/lib/site-data";
+import { NEUROMODULATION_TECHNIQUES } from "@/lib/site-data";
 
 export function Neuromodulazione() {
   return (
@@ -55,15 +52,6 @@ export function Neuromodulazione() {
             </article>
           ))}
         </div>
-
-        <article className="mt-6 rounded-2xl border border-accent-light/40 bg-accent-light/15 p-7 sm:mt-8 sm:p-9">
-          <h3 className="font-display text-xl font-medium uppercase tracking-wide text-white sm:text-2xl">
-            {SPINAL_INFILTRATIONS_HIGHLIGHT.title}
-          </h3>
-          <p className="mt-4 text-sm leading-[1.75] text-white/80 sm:text-[15px]">
-            {SPINAL_INFILTRATIONS_HIGHLIGHT.description}
-          </p>
-        </article>
       </div>
     </section>
   );

@@ -20,12 +20,12 @@ export function Hero() {
 
           <h1
             id="hero-heading"
-            className="font-display mt-7 max-w-[14ch] text-[2.59rem] font-semibold leading-[1.08] text-primary sm:text-[2.9rem] lg:text-[3.45rem] xl:text-[4rem]"
+            className="mt-7 max-w-[14ch] text-[2.59rem] font-medium leading-[1.08] tracking-[-0.02em] text-primary sm:text-[2.9rem] lg:text-[3.45rem] xl:text-[4rem]"
           >
             {SITE.name}
           </h1>
 
-          <p className="font-display prose-narrow mt-5 text-2xl font-medium leading-snug text-secondary sm:text-3xl">
+          <p className="prose-narrow mt-5 text-2xl font-medium leading-snug text-secondary sm:text-3xl">
             {SITE.tagline}
           </p>
 
@@ -49,7 +49,7 @@ export function Hero() {
               Richiedi una consulenza
             </Button>
             <Button href="#specializzazioni-chirurgiche" variant="secondary" size="lg">
-              Scopri le specializzazioni
+              Scopri le aree di competenza
             </Button>
           </div>
 
@@ -57,12 +57,15 @@ export function Hero() {
             <p className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
               Sedi di consulenza
             </p>
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-surface px-4 py-2 shadow-card">
+            <a
+              href="#sedi-consulenza"
+              className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-surface px-4 py-2 shadow-card transition-colors duration-300 hover:border-accent/25 hover:text-accent"
+            >
               <LocationIcon className="h-3.5 w-3.5 shrink-0 text-accent" />
               <span className="whitespace-nowrap text-sm font-medium text-primary">
                 {SITE.locationsLabel}
               </span>
-            </div>
+            </a>
           </div>
         </div>
 

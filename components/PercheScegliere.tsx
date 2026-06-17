@@ -9,12 +9,12 @@ export function PercheScegliere() {
     >
       <div className="editorial-container">
         <div className="mb-12 max-w-2xl">
-          <p className="eyebrow-rule text-[10px] font-light uppercase tracking-[0.24em] text-accent">
+          <p className="eyebrow-rule text-[10px] font-bold uppercase tracking-[0.24em] text-accent">
             Il valore della cura
           </p>
           <h2
             id="perche-scegliere-heading"
-            className="font-display mt-4 text-3xl font-semibold text-primary sm:text-4xl"
+            className="font-display mt-4 text-3xl font-bold text-primary sm:text-4xl"
           >
             Perché scegliere il Dr. Incarbone
           </h2>

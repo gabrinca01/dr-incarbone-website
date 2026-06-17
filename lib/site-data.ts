@@ -1,11 +1,12 @@
 import type {
+  AdditionalService,
+  ConsultationLocation,
   ClinicalArea,
   CredibilityItem,
   EducationItem,
   ExcellenceItem,
   FAQItem,
   NavLink,
-  NeuromodulationHighlight,
   NeuromodulationTechnique,
   PathologyCategory,
   ProfessionalExperience,
@@ -16,6 +17,33 @@ import type {
   SurgicalStat,
   TimelineStep,
 } from "@/types";
+
+export const CONSULTATION_LOCATIONS: ConsultationLocation[] = [
+  {
+    id: "milano",
+    city: "Milano",
+    coordinates: { lat: 45.464203, lng: 9.189982 },
+    bookingNote:
+      "Struttura, sito e numero dedicato in definizione. Per prenotare usare i contatti generali.",
+    confirmed: false,
+  },
+  {
+    id: "arese",
+    city: "Arese",
+    coordinates: { lat: 45.552106, lng: 9.077707 },
+    bookingNote:
+      "Struttura, sito e numero dedicato in definizione. Per prenotare usare i contatti generali.",
+    confirmed: false,
+  },
+  {
+    id: "novara",
+    city: "Novara",
+    coordinates: { lat: 45.446944, lng: 8.621667 },
+    bookingNote:
+      "Struttura, sito e numero dedicato in definizione. Per prenotare usare i contatti generali.",
+    confirmed: false,
+  },
+];
 
 export const SITE = {
   name: "Dr. Giorgio Incarbone",
@@ -34,15 +62,15 @@ export const SITE = {
   phoneHref: "tel:+393385753053",
   email: "giorgio.incarbone@asst-fbf-sacco.it",
   emailHref: "mailto:giorgio.incarbone@asst-fbf-sacco.it",
-  locations: ["Milano", "Arese", "Novara"],
-  locationsLabel: "Milano • Arese • Novara",
+  locations: CONSULTATION_LOCATIONS.map((location) => location.city),
+  locationsLabel: CONSULTATION_LOCATIONS.map((location) => location.city).join(" • "),
   cvHref: "/curriculum-dr-incarbone.pdf",
-} as const;
+};
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
   { label: "Chi sono", href: "#chi-sono" },
-  { label: "Specializzazioni", href: "#specializzazioni-chirurgiche" },
+  { label: "Aree di competenza", href: "#specializzazioni-chirurgiche" },
   { label: "Patologie", href: "#patologie-trattate" },
   { label: "Esperienza", href: "#esperienza-operatoria" },
 ];
@@ -57,7 +85,6 @@ export const EXCELLENCE_ITEMS: ExcellenceItem[] = [
   { label: "Neurochirurgia Spinale", featured: true },
   { label: "Neurochirurgia Funzionale / Neuromodulatoria", featured: true },
   { label: "Neurochirurgia Vascolare", featured: true },
-  { label: "Second Opinion Specialistica" },
 ];
 
 export const SURGICAL_SPECIALIZATIONS: SurgicalSpecialization[] = [
@@ -251,11 +278,18 @@ export const NEUROMODULATION_TECHNIQUES: NeuromodulationTechnique[] = [
   },
 ];
 
-export const SPINAL_INFILTRATIONS_HIGHLIGHT: NeuromodulationHighlight = {
-  title: "Infiltrazioni della colonna vertebrale",
-  description:
-    "Le infiltrazioni della colonna vertebrale sono trattamenti mininvasivi che prevedono l'iniezione di farmaci vicino alle strutture nervose o articolari responsabili del dolore. Sono utilizzate per ridurre l'infiammazione e migliorare la sintomatologia dolorosa. L'effetto può durare diversi mesi.",
-};
+export const ADDITIONAL_SERVICES: AdditionalService[] = [
+  {
+    title: "Second Opinion Specialistica",
+    description:
+      "Valutazione neurochirurgica indipendente su diagnosi, indicazione operativa e piano terapeutico, anche per casi già in trattamento presso altre strutture. Un confronto specialistico utile per conferma, rivalutazione o chiarimento su situazioni complesse.",
+  },
+  {
+    title: "Infiltrazioni della colonna vertebrale",
+    description:
+      "Trattamenti mininvasivi che prevedono l'iniezione di farmaci vicino alle strutture nervose o articolari responsabili del dolore. Utilizzate per ridurre l'infiammazione e migliorare la sintomatologia dolorosa, con un effetto che può durare diversi mesi.",
+  },
+];
 
 export const EDUCATION_ITEMS: EducationItem[] = [
   {
@@ -413,6 +447,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Come prenotare una consulenza?",
     answer:
-      "È possibile prenotare compilando il modulo di contatto, inviando un'email a giorgio.incarbone@asst-fbf-sacco.it o telefonando al +39 338 575 3053. Il team risponderà per fissare un appuntamento a Milano, Arese o Novara.",
+      "È possibile prenotare compilando il modulo di contatto, inviando un'email a giorgio.incarbone@asst-fbf-sacco.it o telefonando al +39 338 575 3053. Nella sezione Sedi di consulenza trovi mappa, link e recapiti aggiornati per Milano, Arese e Novara.",
   },
 ];
