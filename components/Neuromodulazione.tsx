@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { NEUROMODULATION_TECHNIQUES } from "@/lib/site-data";
+import { textBody, textCardTitle, textSmall, textStat } from "@/lib/typography";
 
 export function Neuromodulazione() {
   return (
@@ -26,15 +27,15 @@ export function Neuromodulazione() {
           {NEUROMODULATION_TECHNIQUES.map((technique) => (
             <article
               key={technique.acronym}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-500 hover:border-accent/40 hover:bg-white/[0.07] sm:p-8"
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-colors duration-500 hover:border-accent/40 hover:bg-white/[0.07] sm:p-8"
             >
-              <p className="font-display text-5xl font-bold text-accent-light sm:text-6xl">
+              <p className={`${textStat} text-accent-light`}>
                 {technique.acronym}
               </p>
-              <h3 className="mt-4 text-lg font-medium text-white sm:text-xl">
+              <h3 className={`mt-4 ${textCardTitle} text-white`}>
                 {technique.title}
               </h3>
-              <p className="mt-4 text-sm leading-[1.75] text-white/65 sm:text-[15px]">
+              <p className={`mt-4 ${textBody} text-white/65`}>
                 {technique.description}
               </p>
               {technique.applications && technique.applications.length > 0 && (
@@ -42,7 +43,7 @@ export function Neuromodulazione() {
                   {technique.applications.map((application) => (
                     <li
                       key={application}
-                      className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs text-white/75"
+                      className={`rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 ${textSmall} text-white/75`}
                     >
                       {application}
                     </li>

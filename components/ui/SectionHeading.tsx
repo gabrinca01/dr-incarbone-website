@@ -1,3 +1,5 @@
+import { textBodyLarge, textLabel, textSectionTitle } from "@/lib/typography";
+
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
@@ -26,7 +28,7 @@ export function SectionHeading({
     <div className={`max-w-2xl ${alignClass} ${className}`}>
       {eyebrow && (
         <p
-          className={`${eyebrowRule} text-[10px] font-bold uppercase tracking-[0.24em] ${
+          className={`${eyebrowRule} ${textLabel} ${
             isDark ? "text-accent-light" : "text-accent"
           }`}
         >
@@ -35,15 +37,13 @@ export function SectionHeading({
       )}
       <h2
         id={id}
-        className={`font-display text-3xl font-bold leading-[1.12] sm:text-4xl lg:text-[2.75rem] ${
-          isDark ? "text-white" : "text-primary"
-        }`}
+        className={`${textSectionTitle} ${isDark ? "text-white" : "text-primary"}`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`mt-5 max-w-xl text-base leading-[1.75] sm:text-lg ${
+          className={`mt-5 max-w-xl ${textBodyLarge} ${
             align === "center" ? "mx-auto" : ""
           } ${isDark ? "text-white/65" : "text-muted"}`}
         >

@@ -4,6 +4,7 @@ import L from "leaflet";
 import { useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import type { ConsultationLocation } from "@/types";
+import { textCardTitle, textSmall } from "@/lib/typography";
 import "leaflet/dist/leaflet.css";
 
 interface LocationsMapProps {
@@ -57,7 +58,7 @@ export function LocationsMap({ locations }: LocationsMapProps) {
   const defaultCenter: [number, number] = [45.5, 8.9];
 
   return (
-    <div className="premium-card overflow-hidden rounded-2xl">
+    <div className="premium-card card-static overflow-hidden rounded-2xl">
       <div className="h-[380px] w-full sm:h-[440px] lg:h-[480px]">
         <MapContainer
           center={defaultCenter}
@@ -77,8 +78,8 @@ export function LocationsMap({ locations }: LocationsMapProps) {
               icon={markerIcon}
             >
               <Popup>
-                <div className="text-sm">
-                  <p className="font-semibold text-primary">{location.city}</p>
+                <div className={textSmall}>
+                  <p className={`${textCardTitle} text-primary`}>{location.city}</p>
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${location.coordinates.lat},${location.coordinates.lng}`}
                     target="_blank"

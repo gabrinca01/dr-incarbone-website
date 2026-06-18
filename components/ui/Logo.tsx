@@ -21,8 +21,8 @@ const TEXT_HEIGHT_SCALE = 1.24;
 const VARIANTS = {
   navbar: {
     iconHeight:
-      "[--logo-icon-h:4.25rem] sm:[--logo-icon-h:4.75rem] md:[--logo-icon-h:5rem] lg:[--logo-icon-h:4.75rem] xl:[--logo-icon-h:4.35rem] 2xl:[--logo-icon-h:5.375rem]",
-    gap: "gap-2.5 sm:gap-3 md:gap-3.5 xl:gap-3 2xl:gap-4",
+      "[--logo-icon-h:3.25rem] sm:[--logo-icon-h:3.75rem] md:[--logo-icon-h:4.25rem] lg:[--logo-icon-h:4rem] xl:[--logo-icon-h:4.35rem] 2xl:[--logo-icon-h:5.375rem]",
+    gap: "gap-2 sm:gap-2.5 md:gap-3 xl:gap-3 2xl:gap-4",
   },
   footer: {
     iconHeight:
@@ -65,7 +65,11 @@ export function Logo({ variant = "navbar", className = "" }: LogoProps) {
         height={LOGO_TEXT.height}
         unoptimized
         style={{ width: textWidth, height: textHeight }}
-        className="shrink-0 object-fill object-left"
+        className={
+          variant === "navbar"
+            ? "max-w-[9.5rem] shrink-0 object-contain object-left sm:max-w-none sm:object-fill"
+            : "shrink-0 object-fill object-left"
+        }
       />
     </div>
   );

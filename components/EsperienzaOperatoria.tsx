@@ -1,6 +1,7 @@
 import { SurgicalStatsDisplay } from "@/components/ui/SurgicalStatsDisplay";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SURGICAL_STATS } from "@/lib/site-data";
+import { textBodyLarge } from "@/lib/typography";
 
 export function EsperienzaOperatoria() {
   return (
@@ -21,7 +22,7 @@ export function EsperienzaOperatoria() {
 
         <SurgicalStatsDisplay stats={SURGICAL_STATS} variant="featured" />
 
-        <p className="prose-narrow mx-auto mt-10 text-center text-base leading-[1.75] text-muted sm:mt-12 sm:text-lg">
+        <p className={`prose-narrow mx-auto mt-10 text-center ${textBodyLarge} text-muted sm:mt-12`}>
           Il Dr. Incarbone ha partecipato a oltre 1330 interventi neurochirurgici
           complessivi, assumendo il ruolo di primo operatore in più di 630
           procedure. Questa esperienza documentata copre la neurochirurgia

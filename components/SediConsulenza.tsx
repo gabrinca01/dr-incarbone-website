@@ -3,6 +3,7 @@ import { LocationIcon, PhoneIcon } from "@/components/ui/Icons";
 import { LocationsMapToggle } from "@/components/ui/LocationsMapToggle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONSULTATION_LOCATIONS, SITE } from "@/lib/site-data";
+import { textBody, textBodyLarge, textCardTitle, textLabel, textSmall } from "@/lib/typography";
 
 export function SediConsulenza() {
   return (
@@ -36,24 +37,24 @@ export function SediConsulenza() {
                     <LocationIcon className="h-4 w-4" />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-display text-xl font-medium text-primary sm:text-2xl">
+                    <h3 className={`${textCardTitle} text-primary`}>
                       {location.city}
                     </h3>
                     {!location.confirmed && (
-                      <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-accent">
+                      <p className={`mt-1 ${textLabel} text-accent`}>
                         In aggiornamento
                       </p>
                     )}
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm leading-[1.7] text-muted">
+                <p className={`mt-4 ${textBody} text-muted`}>
                   {location.institutionName ??
                     "Struttura e indirizzo in definizione."}
                 </p>
 
                 {location.address && (
-                  <p className="mt-2 text-sm leading-[1.7] text-muted">
+                  <p className="mt-2 text-muted">
                     {location.address}
                   </p>
                 )}
@@ -64,31 +65,31 @@ export function SediConsulenza() {
                       href={location.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mb-4 inline-flex text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+                      className={`mb-4 inline-flex ${textSmall} text-accent transition-colors hover:text-accent-hover`}
                     >
                       {location.websiteLabel ?? "Sito della struttura"}
                     </a>
                   )}
 
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  <p className={`${textLabel} text-primary`}>
                     Prenotazione
                   </p>
                   <a
                     href={bookingPhoneHref}
-                    className="mt-2 inline-flex items-center gap-2 text-base font-medium text-primary transition-colors hover:text-accent"
+                    className={`mt-2 inline-flex items-center gap-2 ${textBody} text-primary transition-colors hover:text-accent`}
                   >
                     <PhoneIcon className="h-4 w-4 text-accent" />
                     {bookingPhone}
                   </a>
 
                   {!location.confirmed && (
-                    <p className="mt-2 text-sm leading-[1.65] text-muted">
+                    <p className={`mt-2 ${textBody} text-muted`}>
                       Numero dedicato in arrivo. Per ora usa i contatti generali.
                     </p>
                   )}
 
                   {location.bookingNote && location.confirmed && (
-                    <p className="mt-2 text-sm leading-[1.65] text-muted">
+                    <p className={`mt-2 ${textBody} text-muted`}>
                       {location.bookingNote}
                     </p>
                   )}
@@ -101,11 +102,11 @@ export function SediConsulenza() {
         <LocationsMapToggle locations={CONSULTATION_LOCATIONS} />
 
         <div className="mt-10 text-center">
-          <p className="mx-auto max-w-xl text-sm leading-[1.75] text-muted">
+          <p className={`mx-auto max-w-xl ${textBody} text-muted`}>
             Per una richiesta immediata puoi usare il modulo contatti o scrivere a{" "}
             <a
               href={SITE.emailHref}
-              className="font-medium text-accent transition-colors hover:text-accent-hover"
+              className="text-accent transition-colors hover:text-accent-hover"
             >
               {SITE.email}
             </a>

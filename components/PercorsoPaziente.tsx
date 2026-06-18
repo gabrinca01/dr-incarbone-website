@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TIMELINE_STEPS } from "@/lib/site-data";
+import { textBody, textCardTitle, textStepBadge } from "@/lib/typography";
 
 export function PercorsoPaziente() {
   return (
@@ -31,15 +32,15 @@ export function PercorsoPaziente() {
                 />
               )}
 
-              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-card font-display text-base font-bold text-accent shadow-card">
+              <div className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-card ${textStepBadge} text-accent shadow-card`}>
                 {step.step}
               </div>
 
               <div className="premium-card flex-1 p-5 sm:p-6">
-                <h3 className="font-display text-lg font-medium text-primary sm:text-xl">
+                <h3 className={`${textCardTitle} text-primary`}>
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-[1.7] text-muted sm:text-[15px]">
+                <p className={`mt-2 ${textBody} text-muted`}>
                   {step.description}
                 </p>
               </div>

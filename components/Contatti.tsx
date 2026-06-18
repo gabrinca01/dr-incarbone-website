@@ -6,6 +6,7 @@ import { EmailIcon, LocationIcon, PhoneIcon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { hasValidationErrors, validateContactForm } from "@/lib/contact-validation";
 import { SITE } from "@/lib/site-data";
+import { textBody, textBodyLarge, textLabel, textSmall } from "@/lib/typography";
 import type { ContactFormData, ContactFormErrors } from "@/types";
 
 const initialFormData: ContactFormData = {
@@ -16,7 +17,7 @@ const initialFormData: ContactFormData = {
 };
 
 const inputClass =
-  "mt-2.5 w-full rounded-xl border border-border/80 bg-surface px-4 py-3.5 text-base text-primary transition-all duration-300 placeholder:text-muted/50 focus:border-accent/40 focus:bg-card focus:outline-none focus:ring-4 focus:ring-accent/[0.08]";
+  `mt-2.5 w-full rounded-xl border border-border/80 bg-surface px-4 py-3.5 ${textBody} text-primary transition-all duration-300 placeholder:text-muted/50 focus:border-accent/40 focus:bg-card focus:outline-none focus:ring-4 focus:ring-accent/[0.08]`;
 
 export function Contatti() {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
@@ -75,7 +76,7 @@ export function Contatti() {
                   content: (
                     <a
                       href={SITE.phoneHref}
-                      className="text-xl text-muted transition-colors duration-300 hover:text-accent"
+                      className={`${textBodyLarge} text-muted transition-colors duration-300 hover:text-accent`}
                     >
                       {SITE.phone}
                     </a>
@@ -87,7 +88,7 @@ export function Contatti() {
                   content: (
                     <a
                       href={SITE.emailHref}
-                      className="text-xl text-muted transition-colors duration-300 hover:text-accent"
+                      className={`${textBodyLarge} text-muted transition-colors duration-300 hover:text-accent`}
                     >
                       {SITE.email}
                     </a>
@@ -98,10 +99,10 @@ export function Contatti() {
                   label: "Sedi",
                   content: (
                     <div>
-                      <p className="text-xl text-muted">{SITE.locationsLabel}</p>
+                      <p className={`${textBodyLarge} text-muted`}>{SITE.locationsLabel}</p>
                       <a
                         href="#sedi-consulenza"
-                        className="mt-2 inline-flex text-sm font-medium text-accent transition-colors duration-300 hover:text-accent-hover"
+                        className={`mt-2 inline-flex ${textSmall} text-accent transition-colors duration-300 hover:text-accent-hover`}
                       >
                         Vedi mappa e recapiti per la prenotazione
                       </a>
@@ -114,7 +115,7 @@ export function Contatti() {
                     {item.icon}
                   </span>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                    <p className={`${textLabel} text-primary`}>
                       {item.label}
                     </p>
                     <div className="mt-2">{item.content}</div>
@@ -129,7 +130,7 @@ export function Contatti() {
               <div
                 role="status"
                 aria-live="polite"
-                className="mb-8 rounded-2xl border border-accent/20 bg-accent/[0.04] px-6 py-5 text-base text-primary"
+                className={`mb-8 rounded-2xl border border-accent/20 bg-accent/[0.04] px-6 py-5 ${textBody} text-primary`}
               >
                 Grazie per la richiesta. Abbiamo ricevuto il tuo messaggio e ti
                 contatteremo a breve per organizzare la consulenza.
@@ -148,7 +149,7 @@ export function Contatti() {
                   <div key={field.id}>
                     <label
                       htmlFor={field.id}
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary"
+                      className={`${textLabel} text-primary`}
                     >
                       {field.label} <span className="text-muted">*</span>
                     </label>
@@ -165,7 +166,7 @@ export function Contatti() {
                       className={inputClass}
                     />
                     {errors[field.id] && (
-                      <p id={`${field.id}-error`} className="mt-2 text-sm text-red-600" role="alert">
+                      <p id={`${field.id}-error`} className={`mt-2 ${textSmall} text-red-600`} role="alert">
                         {errors[field.id]}
                       </p>
                     )}
@@ -175,7 +176,7 @@ export function Contatti() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary"
+                    className={`${textLabel} text-primary`}
                   >
                     Messaggio <span className="text-muted">*</span>
                   </label>
@@ -192,7 +193,7 @@ export function Contatti() {
                     className={`${inputClass} resize-y`}
                   />
                   {errors.message && (
-                    <p id="message-error" className="mt-2 text-sm text-red-600" role="alert">
+                    <p id="message-error" className={`mt-2 ${textSmall} text-red-600`} role="alert">
                       {errors.message}
                     </p>
                   )}

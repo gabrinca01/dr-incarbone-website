@@ -1,6 +1,7 @@
 import { ClinicalAreaIcon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SURGICAL_SPECIALIZATIONS } from "@/lib/site-data";
+import { textBody, textSubsection } from "@/lib/typography";
 
 function spansFullWidth(condition: string) {
   return condition.length >= 24;
@@ -33,14 +34,14 @@ export function SpecializzazioniChirurgiche() {
               <div className="mb-6 inline-flex rounded-xl bg-accent/[0.06] p-3.5">
                 <ClinicalAreaIcon icon={area.icon} />
               </div>
-              <h3 className="font-display text-2xl font-medium text-primary sm:text-3xl">
+              <h3 className={`${textSubsection} text-primary`}>
                 {area.title}
               </h3>
               <ul className="mt-6 grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                 {area.conditions.map((condition) => (
                   <li
                     key={condition}
-                    className={`flex min-w-0 items-start gap-2.5 text-sm text-primary sm:text-[15px] ${
+                    className={`flex min-w-0 items-start gap-2.5 ${textBody} text-primary ${
                       spansFullWidth(condition) ? "sm:col-span-2" : ""
                     }`}
                   >

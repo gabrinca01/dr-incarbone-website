@@ -1,5 +1,7 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { StatsCounter } from "@/components/ui/StatsCounter";
 import { SITE, STATS } from "@/lib/site-data";
+import { textBody, textBodyLight, textLabel } from "@/lib/typography";
 
 const credentials = [
   {
@@ -38,7 +40,7 @@ export function ChiSono() {
             />
           </div>
 
-          <div className="prose-narrow space-y-5 text-base leading-[1.75] text-muted sm:text-[17px]">
+          <div className={`prose-narrow space-y-5 ${textBodyLight} text-muted`}>
             <p>
               Il Dr. Giorgio Incarbone è neurochirurgo specializzato
               nell&apos;inquadramento diagnostico e nel trattamento chirurgico
@@ -59,10 +61,10 @@ export function ChiSono() {
             <div className="grid gap-4 pt-4 sm:grid-cols-2">
               {credentials.map((item) => (
                 <div key={item.title} className="premium-card p-5 sm:p-6">
-                  <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+                  <h3 className={`${textLabel} text-accent`}>
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-[1.7] text-muted">
+                  <p className={`mt-2 ${textBody} text-muted`}>
                     {item.text}
                   </p>
                 </div>
@@ -71,16 +73,7 @@ export function ChiSono() {
           </div>
         </div>
 
-        <dl className="mt-16 grid gap-8 border-t border-border/60 pt-12 sm:grid-cols-3 sm:gap-10 lg:mt-20 lg:pt-16">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center sm:text-left">
-              <dt className="font-display text-4xl font-bold text-primary lg:text-5xl">
-                {stat.value}
-              </dt>
-              <dd className="mt-2 text-sm text-muted sm:text-base">{stat.label}</dd>
-            </div>
-          ))}
-        </dl>
+        <StatsCounter stats={STATS} />
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PUBLICATIONS } from "@/lib/site-data";
+import { textCaption, textCardTitle, textEditorialIndex } from "@/lib/typography";
 
 export function PubblicazioniSelezionate() {
   return (
@@ -21,15 +22,15 @@ export function PubblicazioniSelezionate() {
           {PUBLICATIONS.map((pub, index) => (
             <li key={pub.title} className="group py-6 sm:py-7">
               <div className="flex gap-5 sm:gap-6">
-                <span className="font-display mt-0.5 w-8 shrink-0 text-2xl font-bold text-accent/40">
+                <span className={`mt-0.5 w-8 shrink-0 ${textEditorialIndex} text-accent/40`}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="font-display text-lg font-medium leading-snug text-primary transition-colors group-hover:text-accent sm:text-xl">
+                  <h3 className={`${textCardTitle} text-primary transition-colors group-hover:text-accent`}>
                     {pub.title}
                   </h3>
                   {pub.context && (
-                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                    <p className={`mt-2 ${textCaption} text-muted`}>
                       {pub.context}
                     </p>
                   )}

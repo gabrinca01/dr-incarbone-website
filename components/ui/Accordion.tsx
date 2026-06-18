@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { textBody, textCardTitle } from "@/lib/typography";
 import type { FAQItem } from "@/types";
 
 interface AccordionProps {
@@ -28,7 +29,7 @@ export function Accordion({ items }: AccordionProps) {
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                <span className="font-display text-lg font-medium text-primary sm:text-xl">
+                <span className={`${textCardTitle} text-primary`}>
                   {item.question}
                 </span>
                 <span
@@ -57,7 +58,7 @@ export function Accordion({ items }: AccordionProps) {
               hidden={!isOpen}
               className="px-6 pb-6 sm:px-7 sm:pb-7"
             >
-              <p className="text-sm leading-[1.75] text-muted sm:text-[15px]">{item.answer}</p>
+              <p className={`${textBody} text-muted`}>{item.answer}</p>
             </div>
           </div>
         );

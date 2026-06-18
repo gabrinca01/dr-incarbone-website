@@ -5,6 +5,7 @@ import {
   PROFESSIONAL_EXPERIENCES,
   SITE,
 } from "@/lib/site-data";
+import { textBody, textCardTitle, textLabel, textSubsection } from "@/lib/typography";
 
 export function Formazione() {
   return (
@@ -47,29 +48,29 @@ export function Formazione() {
               </div>
 
               <div className="premium-card flex-1 p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+                <p className={`${textLabel} text-accent`}>
                   {item.institution}
                 </p>
-                <h3 className="mt-2 font-display text-xl font-medium text-primary">
+                <h3 className={`mt-2 ${textCardTitle} text-primary`}>
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm font-medium text-muted">{item.detail}</p>
+                <p className={`mt-2 ${textBody} text-muted`}>{item.detail}</p>
               </div>
             </li>
           ))}
         </ol>
 
         <div className="mx-auto mt-16 max-w-2xl">
-          <h3 className="font-display mb-8 text-2xl font-medium text-primary">
+          <h3 className={`mb-8 ${textSubsection} text-primary`}>
             Esperienze professionali
           </h3>
           <ul className="grid gap-4 sm:grid-cols-2">
             {PROFESSIONAL_EXPERIENCES.map((experience) => (
               <li key={experience.location} className="premium-card p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+                <p className={`${textLabel} text-accent`}>
                   {experience.location}
                 </p>
-                <p className="mt-2 text-sm leading-[1.7] text-muted">
+                <p className={`mt-2 ${textBody} text-muted`}>
                   {experience.detail}
                 </p>
               </li>

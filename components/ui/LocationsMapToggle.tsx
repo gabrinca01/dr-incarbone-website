@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { textSmall } from "@/lib/typography";
 import type { ConsultationLocation } from "@/types";
 
 const LocationsMap = dynamic(
@@ -11,7 +12,7 @@ const LocationsMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="premium-card flex h-[380px] items-center justify-center rounded-2xl text-sm text-muted sm:h-[440px] lg:h-[480px]">
+      <div className={`premium-card card-static flex h-[380px] items-center justify-center rounded-2xl ${textSmall} text-muted sm:h-[440px] lg:h-[480px]`}>
         Caricamento mappa...
       </div>
     ),

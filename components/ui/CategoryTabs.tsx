@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { textBody, textButton, textCardTitle, textSmall } from "@/lib/typography";
 import type { PathologyCategory } from "@/types";
 
 interface CategoryTabsProps {
@@ -33,7 +34,7 @@ export function CategoryTabs({ categories }: CategoryTabsProps) {
               aria-selected={isActive}
               aria-controls={`panel-${category.id}`}
               id={`tab-${category.id}`}
-              className={`rounded-full border px-5 py-2.5 text-xs font-medium tracking-wide transition-all duration-300 sm:px-6 sm:py-3 sm:text-sm ${
+              className={`rounded-full border px-5 py-2.5 ${textButton} transition-all duration-300 sm:px-6 sm:py-3 ${
                 isActive
                   ? "border-accent/30 bg-accent text-white shadow-card"
                   : "border-border/80 bg-card text-muted hover:border-accent/20 hover:text-primary"
@@ -53,14 +54,14 @@ export function CategoryTabs({ categories }: CategoryTabsProps) {
           aria-labelledby={`tab-${activeCategory.id}`}
           className="premium-card mt-8 p-7 sm:mt-10 sm:p-9"
         >
-          <h3 className="font-display text-xl font-medium text-primary sm:text-2xl">
+          <h3 className={`${textCardTitle} text-primary`}>
             {activeCategory.title}
           </h3>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {activeCategory.conditions.map((condition) => (
               <li
                 key={condition.label}
-                className={`rounded-xl border border-border/60 bg-surface px-4 py-3.5 text-sm text-primary ${
+                className={`rounded-xl border border-border/60 bg-surface px-4 py-3.5 ${textBody} text-primary ${
                   condition.subItems
                     ? "sm:col-span-2 lg:col-span-3"
                     : "flex items-center"
@@ -78,7 +79,7 @@ export function CategoryTabs({ categories }: CategoryTabsProps) {
                     {condition.subItems.map((subItem) => (
                       <li
                         key={subItem}
-                        className="flex items-center gap-2 text-sm text-muted"
+                        className={`flex items-center gap-2 ${textSmall} text-muted`}
                       >
                         <span
                           className="h-1 w-1 shrink-0 rounded-full bg-accent/60"

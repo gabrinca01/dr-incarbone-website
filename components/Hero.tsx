@@ -3,6 +3,13 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { LocationIcon } from "@/components/ui/Icons";
 import { SITE } from "@/lib/site-data";
+import {
+  textBodyLarge,
+  textDisplay,
+  textHeroTagline,
+  textLabel,
+  textSmall,
+} from "@/lib/typography";
 
 export function Hero() {
   return (
@@ -20,16 +27,16 @@ export function Hero() {
 
           <h1
             id="hero-heading"
-            className="mt-7 max-w-[14ch] text-[2.59rem] font-medium leading-[1.08] tracking-[-0.02em] text-primary sm:text-[2.9rem] lg:text-[3.45rem] xl:text-[4rem]"
+            className={`mt-7 max-w-[14ch] ${textDisplay} text-primary`}
           >
             {SITE.name}
           </h1>
 
-          <p className="prose-narrow mt-5 text-2xl font-medium leading-snug text-secondary sm:text-3xl">
+          <p className={`prose-narrow mt-5 ${textHeroTagline} text-secondary`}>
             {SITE.tagline}
           </p>
 
-          <p className="prose-tight mt-6 text-base leading-[1.75] text-muted sm:text-lg">
+          <p className={`prose-tight mt-6 ${textBodyLarge} text-muted`}>
             {SITE.description}
           </p>
 
@@ -37,7 +44,7 @@ export function Hero() {
             {SITE.specializations.map((spec) => (
               <li
                 key={spec}
-                className="rounded-full border border-border/80 bg-surface px-4 py-2 text-xs font-medium tracking-wide text-primary sm:text-[13px]"
+                className={`rounded-full border border-border/80 bg-surface px-4 py-2 ${textSmall} text-primary`}
               >
                 {spec}
               </li>
@@ -54,15 +61,13 @@ export function Hero() {
           </div>
 
           <div className="mt-11">
-            <p className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-              Sedi di consulenza
-            </p>
+            <p className={`mb-2.5 ${textLabel} text-muted`}>Sedi di consulenza</p>
             <a
               href="#sedi-consulenza"
               className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-surface px-4 py-2 shadow-card transition-colors duration-300 hover:border-accent/25 hover:text-accent"
             >
               <LocationIcon className="h-3.5 w-3.5 shrink-0 text-accent" />
-              <span className="whitespace-nowrap text-sm font-medium text-primary">
+              <span className={`whitespace-nowrap ${textSmall} text-primary`}>
                 {SITE.locationsLabel}
               </span>
             </a>
