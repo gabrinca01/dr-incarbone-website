@@ -60,6 +60,9 @@ export interface ConsultationLocation {
   };
   websiteUrl?: string;
   websiteLabel?: string;
+  bookingUrl?: string;
+  bookingButtonLabel?: string;
+  mapsQuery?: string;
   bookingPhone?: string;
   bookingPhoneHref?: string;
   bookingNote?: string;

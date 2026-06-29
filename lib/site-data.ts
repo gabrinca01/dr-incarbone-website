@@ -18,30 +18,69 @@ import type {
   TimelineStep,
 } from "@/types";
 
+export const CONSULTATION_BOOKING_INFO =
+  "Per prenotare visite ed esami in libera professione (intramoenia) presso l'Ospedale Fatebenefratelli di Milano è possibile utilizzare l'Area Privata ASST. Per prenotazioni tramite il Servizio Sanitario Regionale è necessario utilizzare il portale ufficiale di Regione Lombardia.";
+
 export const CONSULTATION_LOCATIONS: ConsultationLocation[] = [
   {
-    id: "milano",
-    city: "Milano",
-    coordinates: { lat: 45.464203, lng: 9.189982 },
-    bookingNote:
-      "Struttura, sito e numero dedicato in definizione. Per prenotare usare i contatti generali.",
-    confirmed: false,
+    id: "studio-medico-arese",
+    city: "Studio Medico Arese",
+    institutionName:
+      "Visite neurochirurgiche specialistiche in regime privato.",
+    address: "Via Monte Grappa, 24/a — Arese (MI)",
+    coordinates: { lat: 45.5446181, lng: 9.0802064 },
+    mapsQuery: "Via Monte Grappa 24, Arese MI",
+    bookingUrl: "https://www.studiomedicoarese.it/",
+    bookingButtonLabel: "Prenota presso Studio Medico Arese",
+    confirmed: true,
   },
   {
-    id: "arese",
-    city: "Arese",
-    coordinates: { lat: 45.552106, lng: 9.077707 },
-    bookingNote:
-      "Struttura, sito e numero dedicato in definizione. Per prenotare usare i contatti generali.",
-    confirmed: false,
+    id: "amicomedico",
+    city: "Amicomedico (Amicodentista)",
+    institutionName:
+      "Visite neurochirurgiche specialistiche presso il poliambulatorio.",
+    address: "Via Lura, 37 — Caronno Pertusella (VA)",
+    coordinates: { lat: 45.595402, lng: 9.0371942 },
+    mapsQuery: "Via Lura 37, Caronno Pertusella VA",
+    bookingUrl: "https://www.amicodentista.com/",
+    bookingButtonLabel: "Prenota presso Amicomedico",
+    confirmed: true,
   },
   {
-    id: "novara",
-    city: "Novara",
-    coordinates: { lat: 45.446944, lng: 8.621667 },
-    bookingNote:
-      "Struttura, sito e numero dedicato in definizione. Per prenotare usare i contatti generali.",
-    confirmed: false,
+    id: "asst-fbf-sacco",
+    city: "ASST Fatebenefratelli Sacco",
+    institutionName: "Attività libero-professionale (intramoenia).",
+    address: "Ospedale Fatebenefratelli — Milano",
+    coordinates: { lat: 45.4786881, lng: 9.1910884 },
+    mapsQuery: "Ospedale Fatebenefratelli, Milano",
+    bookingUrl:
+      "https://www.asst-fbf-sacco.it/servizi-al-paziente/12/area-privata",
+    bookingButtonLabel: "Area Privata ASST",
+    confirmed: true,
+  },
+  {
+    id: "regione-lombardia",
+    city: "Regione Lombardia",
+    institutionName: "Prenotazioni tramite Servizio Sanitario Regionale.",
+    address: "Portale PrenotaSalute — Regione Lombardia",
+    coordinates: { lat: 45.4860424, lng: 9.1959558 },
+    mapsQuery: "Piazza Città di Lombardia 1, Milano",
+    bookingUrl: "https://prenotasalute.regione.lombardia.it/prenotaonline/",
+    bookingButtonLabel: "Prenota tramite Regione Lombardia",
+    confirmed: true,
+  },
+  {
+    id: "aou-novara",
+    city: "AOU Maggiore della Carità — Novara",
+    institutionName:
+      "Attività neurochirurgica presso la U.O. Neurochirurgia Enrico Geuna.",
+    address: "Corso Mazzini, 18 — Novara (NO)",
+    coordinates: { lat: 45.4438699, lng: 8.6225253 },
+    mapsQuery: "Corso Mazzini 18, Novara NO",
+    bookingUrl:
+      "https://www.maggioreosp.novara.it/attivita-assistenziale/strutture-sanitarie/neurochirurgia-enrico-geuna/",
+    bookingButtonLabel: "U.O. Neurochirurgia — Novara",
+    confirmed: true,
   },
 ];
 
@@ -62,8 +101,8 @@ export const SITE = {
   phoneHref: "tel:+393385753053",
   email: "giorgio.incarbone@asst-fbf-sacco.it",
   emailHref: "mailto:giorgio.incarbone@asst-fbf-sacco.it",
-  locations: CONSULTATION_LOCATIONS.map((location) => location.city),
-  locationsLabel: CONSULTATION_LOCATIONS.map((location) => location.city).join(" • "),
+  locations: ["Arese", "Caronno Pertusella", "Milano", "Novara"],
+  locationsLabel: "Arese • Caronno Pertusella • Milano • Novara",
   cvHref: "/curriculum-dr-incarbone.pdf",
 };
 
@@ -312,7 +351,8 @@ export const EDUCATION_ITEMS: EducationItem[] = [
 export const PROFESSIONAL_EXPERIENCES: ProfessionalExperience[] = [
   {
     location: "Novara",
-    detail: "Attività neurochirurgica in ambito ospedaliero e consulenze specialistiche.",
+    detail:
+      "Attività neurochirurgica presso la U.O. Neurochirurgia Enrico Geuna dell'AOU Maggiore della Carità.",
   },
   {
     location: "Vigevano",
@@ -447,6 +487,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Come prenotare una consulenza?",
     answer:
-      "È possibile prenotare compilando il modulo di contatto, inviando un'email a giorgio.incarbone@asst-fbf-sacco.it o telefonando al +39 338 575 3053. Nella sezione Sedi di consulenza trovi mappa, link e recapiti aggiornati per Milano, Arese e Novara.",
+      "Nella sezione Sedi di consulenza trovi le strutture convenzionate, i portali ufficiali di prenotazione e la mappa interattiva. Puoi anche contattarci compilando il modulo, via email a giorgio.incarbone@asst-fbf-sacco.it o telefonando al +39 338 575 3053.",
   },
 ];

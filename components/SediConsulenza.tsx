@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { LocationIcon, PhoneIcon } from "@/components/ui/Icons";
 import { LocationsMapToggle } from "@/components/ui/LocationsMapToggle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CONSULTATION_LOCATIONS, SITE } from "@/lib/site-data";
+import { CONSULTATION_BOOKING_INFO, CONSULTATION_LOCATIONS, SITE } from "@/lib/site-data";
 import { textBody, textBodyLarge, textCardTitle, textLabel, textSmall } from "@/lib/typography";
 
 export function SediConsulenza() {
@@ -17,15 +17,22 @@ export function SediConsulenza() {
           id="sedi-consulenza-heading"
           eyebrow="Dove trovarmi"
           title="Sedi di consulenza"
-          subtitle="Consulenze a Milano, Arese e Novara. I dettagli di struttura, sito e prenotazione verranno aggiornati appena confermati."
+          subtitle="Prenota una consulenza neurochirurgica presso le strutture convenzionate, l'ospedale di Novara e i portali ufficiali di prenotazione."
           align="center"
           className="section-heading-gap mx-auto max-w-2xl"
         />
 
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
           {CONSULTATION_LOCATIONS.map((location) => {
-            const bookingPhone = location.bookingPhone ?? SITE.phone;
-            const bookingPhoneHref = location.bookingPhoneHref ?? SITE.phoneHref;
+            const bookingHref =
+              location.bookingUrl ??
+              location.bookingPhoneHref ??
+              SITE.phoneHref;
+            const bookingLabel =
+              location.bookingButtonLabel ??
+              location.bookingPhone ??
+              SITE.phone;
+            const isExternalBooking = Boolean(location.bookingUrl);
 
             return (
               <article
@@ -60,7 +67,8 @@ export function SediConsulenza() {
                 )}
 
                 <div className="mt-auto border-t border-border/70 pt-4">
-                  {location.websiteUrl && (
+                  {location.websiteUrl &&
+                    location.websiteUrl !== location.bookingUrl && (
                     <a
                       href={location.websiteUrl}
                       target="_blank"
@@ -75,20 +83,18 @@ export function SediConsulenza() {
                     Prenotazione
                   </p>
                   <a
-                    href={bookingPhoneHref}
+                    href={bookingHref}
+                    target={isExternalBooking ? "_blank" : undefined}
+                    rel={isExternalBooking ? "noopener noreferrer" : undefined}
                     className={`mt-2 inline-flex items-center gap-2 ${textBody} text-primary transition-colors hover:text-accent`}
                   >
-                    <PhoneIcon className="h-4 w-4 text-accent" />
-                    {bookingPhone}
+                    {!isExternalBooking && (
+                      <PhoneIcon className="h-4 w-4 text-accent" />
+                    )}
+                    {bookingLabel}
                   </a>
 
-                  {!location.confirmed && (
-                    <p className={`mt-2 ${textBody} text-muted`}>
-                      Numero dedicato in arrivo. Per ora usa i contatti generali.
-                    </p>
-                  )}
-
-                  {location.bookingNote && location.confirmed && (
+                  {location.bookingNote && (
                     <p className={`mt-2 ${textBody} text-muted`}>
                       {location.bookingNote}
                     </p>
@@ -98,6 +104,10 @@ export function SediConsulenza() {
             );
           })}
         </div>
+
+        <p className={`mx-auto mt-8 max-w-3xl text-center ${textBody} text-muted`}>
+          {CONSULTATION_BOOKING_INFO}
+        </p>
 
         <LocationsMapToggle locations={CONSULTATION_LOCATIONS} />
 

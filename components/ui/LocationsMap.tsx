@@ -63,7 +63,7 @@ export function LocationsMap({ locations }: LocationsMapProps) {
         <MapContainer
           center={defaultCenter}
           zoom={9}
-          scrollWheelZoom={false}
+          scrollWheelZoom
           className="h-full w-full"
         >
           <TileLayer
@@ -71,7 +71,13 @@ export function LocationsMap({ locations }: LocationsMapProps) {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <MapViewport locations={locations} />
-          {locations.map((location) => (
+          {locations.map((location) => {
+            const mapsQuery =
+              location.mapsQuery ??
+              location.address ??
+              `${location.coordinates.lat},${location.coordinates.lng}`;
+
+            return (
             <Marker
               key={location.id}
               position={[location.coordinates.lat, location.coordinates.lng]}
@@ -81,7 +87,7 @@ export function LocationsMap({ locations }: LocationsMapProps) {
                 <div className={textSmall}>
                   <p className={`${textCardTitle} text-primary`}>{location.city}</p>
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${location.coordinates.lat},${location.coordinates.lng}`}
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-1 inline-flex text-accent hover:underline"
@@ -91,7 +97,8 @@ export function LocationsMap({ locations }: LocationsMapProps) {
                 </div>
               </Popup>
             </Marker>
-          ))}
+            );
+          })}
         </MapContainer>
       </div>
     </div>
