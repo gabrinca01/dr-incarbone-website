@@ -97,10 +97,10 @@ export const SITE = {
     "Neurochirurgia Funzionale / Neuromodulatoria",
     "Neurochirurgia Vascolare",
   ],
-  phone: "+39 338 575 3053",
-  phoneHref: "tel:+393385753053",
-  email: "giorgio.incarbone@asst-fbf-sacco.it",
-  emailHref: "mailto:giorgio.incarbone@asst-fbf-sacco.it",
+  phone: "+39 339 640 9866",
+  phoneHref: "tel:+393396409866",
+  email: "giorgio.incarbone@giorgioincarbone.com",
+  emailHref: "mailto:giorgio.incarbone@giorgioincarbone.com",
   locations: ["Arese", "Caronno Pertusella", "Milano", "Novara"],
   locationsLabel: "Arese • Caronno Pertusella • Milano • Novara",
   cvHref: "/curriculum-dr-incarbone.pdf",
@@ -487,6 +487,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Come prenotare una consulenza?",
     answer:
-      "Nella sezione Sedi di consulenza trovi le strutture convenzionate, i portali ufficiali di prenotazione e la mappa interattiva. Puoi anche contattarci compilando il modulo, via email a giorgio.incarbone@asst-fbf-sacco.it o telefonando al +39 338 575 3053.",
+      `Nella sezione Sedi di consulenza trovi le strutture convenzionate, i portali ufficiali di prenotazione e la mappa interattiva. Puoi anche contattarci compilando il modulo, via email a ${SITE.email} o telefonando al ${SITE.phone}.`,
   },
 ];

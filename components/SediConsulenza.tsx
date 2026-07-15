@@ -3,7 +3,7 @@ import { LocationIcon, PhoneIcon } from "@/components/ui/Icons";
 import { LocationsMapToggle } from "@/components/ui/LocationsMapToggle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONSULTATION_BOOKING_INFO, CONSULTATION_LOCATIONS, SITE } from "@/lib/site-data";
-import { textBody, textBodyLarge, textCardTitle, textLabel, textSmall } from "@/lib/typography";
+import { textBody, textCardTitle, textLabel, textSmall } from "@/lib/typography";
 
 export function SediConsulenza() {
   return (

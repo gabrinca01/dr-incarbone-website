@@ -120,15 +120,19 @@ export interface PathologyCategory {
 }
 
 export interface ContactFormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
+  reason: string;
   message: string;
 }
 
 export interface ContactFormErrors {
-  name?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   phone?: string;
+  reason?: string;
   message?: string;
 }

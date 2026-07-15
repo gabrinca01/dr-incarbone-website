@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { miranoExtended } from "@/lib/fonts";
+import { SITE_URL } from "@/lib/env";
 import { getPhysicianSchema } from "@/lib/schema";
 import "./globals.css";
 
@@ -11,7 +12,7 @@ const siteDescription =
 export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
-  metadataBase: new URL("https://www.giorgioincarbone.it"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },

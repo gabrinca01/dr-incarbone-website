@@ -38,6 +38,9 @@ export function CountUpNumber({
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
+        if (!entry.isIntersecting) {
+          setDisplay(0);
+        }
       },
       { threshold: 0.35, rootMargin: "0px 0px -8% 0px" },
     );
@@ -48,7 +51,6 @@ export function CountUpNumber({
 
   useEffect(() => {
     if (!isVisible) {
-      setDisplay(0);
       return;
     }
 

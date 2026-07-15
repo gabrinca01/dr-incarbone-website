@@ -1,4 +1,5 @@
 import { SITE } from "@/lib/site-data";
+import { SITE_URL } from "@/lib/env";
 
 export function getPhysicianSchema() {
   return {
@@ -10,7 +11,7 @@ export function getPhysicianSchema() {
     description: SITE.description,
     telephone: SITE.phone,
     email: SITE.email,
-    url: "https://www.giorgioincarbone.it",
+    url: SITE_URL,
     areaServed: SITE.locations.map((city) => ({
       "@type": "City",
       name: city,

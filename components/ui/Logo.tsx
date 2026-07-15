@@ -64,11 +64,15 @@ export function Logo({ variant = "navbar", className = "" }: LogoProps) {
         width={LOGO_TEXT.width}
         height={LOGO_TEXT.height}
         unoptimized
-        style={{ width: textWidth, height: textHeight }}
+        style={
+          variant === "footer"
+            ? { height: textHeight, maxWidth: textWidth, width: "auto" }
+            : { width: textWidth, height: textHeight }
+        }
         className={
           variant === "navbar"
             ? "max-w-[9.5rem] shrink-0 object-contain object-left sm:max-w-none sm:object-fill"
-            : "shrink-0 object-fill object-left"
+            : "min-w-0 max-w-full shrink object-contain object-left"
         }
       />
     </div>
@@ -76,7 +80,7 @@ export function Logo({ variant = "navbar", className = "" }: LogoProps) {
 
   if (variant === "footer") {
     return (
-      <div className="inline-flex max-w-full rounded-xl bg-white px-6 py-5 shadow-editorial sm:px-8 sm:py-6 lg:px-10 lg:py-7">
+      <div className="inline-flex w-fit max-w-full rounded-xl bg-white px-6 py-5 shadow-editorial sm:px-8 sm:py-6 lg:px-10 lg:py-7">
         {lockup}
       </div>
     );

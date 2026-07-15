@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { EmailIcon, LocationIcon, PhoneIcon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -10,9 +10,11 @@ import { textBody, textBodyLarge, textLabel, textSmall } from "@/lib/typography"
 import type { ContactFormData, ContactFormErrors } from "@/types";
 
 const initialFormData: ContactFormData = {
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   phone: "",
+  reason: "",
   message: "",
 };
 
@@ -24,6 +26,15 @@ export function Contatti() {
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const formLoadedAtRef = useRef(0);
+  const [honeypot, setHoneypot] = useState("");
+
+  const setFormRef = (node: HTMLFormElement | null) => {
+    if (node && formLoadedAtRef.current === 0) {
+      formLoadedAtRef.current = Date.now();
+    }
+  };
 
   const handleChange = (field: keyof ContactFormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -34,11 +45,15 @@ export function Contatti() {
         return next;
       });
     }
+    if (submitError) {
+      setSubmitError(null);
+    }
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitted(false);
+    setSubmitError(null);
 
     const validationErrors = validateContactForm(formData);
     setErrors(validationErrors);
@@ -46,10 +61,43 @@ export function Contatti() {
     if (hasValidationErrors(validationErrors)) return;
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData(initialFormData);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          website: honeypot,
+          formLoadedAt: formLoadedAtRef.current,
+        }),
+      });
+
+      const result = (await response.json()) as { error?: string; details?: ContactFormErrors };
+
+      if (!response.ok) {
+        if (result.details) {
+          setErrors(result.details);
+        }
+        setSubmitError(
+          result.error ||
+            "Si è verificato un errore durante l'invio. Riprova tra qualche minuto.",
+        );
+        return;
+      }
+
+      setIsSubmitted(true);
+      setFormData(initialFormData);
+      formLoadedAtRef.current = Date.now();
+    } catch {
+      setSubmitError(
+        "Impossibile inviare la richiesta. Verifica la connessione e riprova.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -59,8 +107,8 @@ export function Contatti() {
       aria-labelledby="contatti-heading"
     >
       <div className="editorial-container">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <div data-scroll-target>
+        <div className="grid gap-12 xl:grid-cols-[minmax(0,1.07fr)_minmax(0,0.93fr)] xl:items-start xl:gap-16 2xl:gap-20">
+          <div data-scroll-target className="min-w-0">
             <SectionHeading
               id="contatti-heading"
               eyebrow="Contatti"
@@ -88,7 +136,7 @@ export function Contatti() {
                   content: (
                     <a
                       href={SITE.emailHref}
-                      className={`${textBodyLarge} text-muted transition-colors duration-300 hover:text-accent`}
+                      className={`${textBodyLarge} pr-[5px] text-muted transition-colors duration-300 hover:text-accent xl:whitespace-nowrap`}
                     >
                       {SITE.email}
                     </a>
@@ -114,7 +162,7 @@ export function Contatti() {
                   <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent/[0.06] text-accent">
                     {item.icon}
                   </span>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className={`${textLabel} text-primary`}>
                       {item.label}
                     </p>
@@ -125,7 +173,7 @@ export function Contatti() {
             </ul>
           </div>
 
-          <div className="premium-card p-7 sm:p-8">
+          <div className="premium-card min-w-0 p-7 sm:p-8">
             {isSubmitted && (
               <div
                 role="status"
@@ -133,17 +181,43 @@ export function Contatti() {
                 className={`mb-8 rounded-2xl border border-accent/20 bg-accent/[0.04] px-6 py-5 ${textBody} text-primary`}
               >
                 Grazie per la richiesta. Abbiamo ricevuto il tuo messaggio e ti
-                contatteremo a breve per organizzare la consulenza.
+                contatteremo a breve per organizzare la consulenza. Riceverai
+                anche un&apos;email di conferma.
               </div>
             )}
 
-            <form onSubmit={handleSubmit} noValidate aria-labelledby="contatti-heading">
+            {submitError && (
+              <div
+                role="alert"
+                aria-live="assertive"
+                className={`mb-8 rounded-2xl border border-red-200 bg-red-50 px-6 py-5 ${textBody} text-red-700`}
+              >
+                {submitError}
+              </div>
+            )}
+
+            <form ref={setFormRef} onSubmit={handleSubmit} noValidate aria-labelledby="contatti-heading">
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <div className="space-y-7">
                 {(
                   [
-                    { id: "name", label: "Nome", type: "text", autoComplete: "name" },
+                    { id: "firstName", label: "Nome", type: "text", autoComplete: "given-name" },
+                    { id: "lastName", label: "Cognome", type: "text", autoComplete: "family-name" },
                     { id: "email", label: "Email", type: "email", autoComplete: "email" },
                     { id: "phone", label: "Telefono", type: "tel", autoComplete: "tel" },
+                    { id: "reason", label: "Motivo della richiesta", type: "text", autoComplete: "off" },
                   ] as const
                 ).map((field) => (
                   <div key={field.id}>
