@@ -3,10 +3,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SURGICAL_SPECIALIZATIONS } from "@/lib/site-data";
 import { textBody, textSubsection } from "@/lib/typography";
 
-function spansFullWidth(condition: string) {
-  return condition.length >= 24;
-}
-
 export function SpecializzazioniChirurgiche() {
   return (
     <section
@@ -37,13 +33,11 @@ export function SpecializzazioniChirurgiche() {
               <h3 className={`${textSubsection} text-primary`}>
                 {area.title}
               </h3>
-              <ul className="mt-6 grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+              <ul className="mt-6 grid min-w-0 gap-3">
                 {area.conditions.map((condition) => (
                   <li
                     key={condition}
-                    className={`flex min-w-0 items-start gap-2.5 ${textBody} text-primary ${
-                      spansFullWidth(condition) ? "sm:col-span-2" : ""
-                    }`}
+                    className={`flex min-w-0 items-start gap-2.5 ${textBody} text-primary`}
                   >
                     <span
                       className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
