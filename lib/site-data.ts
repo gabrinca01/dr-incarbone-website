@@ -71,16 +71,10 @@ export const CONSULTATION_LOCATIONS: ConsultationLocation[] = [
   },
   {
     id: "aou-novara",
-    city: "AOU Maggiore della Carità — Novara",
-    institutionName:
-      "Attività neurochirurgica presso la U.O. Neurochirurgia Enrico Geuna.",
-    address: "Corso Mazzini, 18 — Novara (NO)",
+    city: "Novara",
     coordinates: { lat: 45.4438699, lng: 8.6225253 },
-    mapsQuery: "Corso Mazzini 18, Novara NO",
-    bookingUrl:
-      "https://www.maggioreosp.novara.it/attivita-assistenziale/strutture-sanitarie/neurochirurgia-enrico-geuna/",
-    bookingButtonLabel: "U.O. Neurochirurgia — Novara",
-    confirmed: true,
+    mapsQuery: "Novara",
+    confirmed: false,
   },
 ];
 
@@ -97,8 +91,8 @@ export const SITE = {
     "Neurochirurgia Funzionale / Neuromodulatoria",
     "Neurochirurgia Vascolare",
   ],
-  phone: "+39 339 640 9866",
-  phoneHref: "tel:+393396409866",
+  phone: "+39 388 842 3708",
+  phoneHref: "tel:+393888423708",
   email: "giorgio.incarbone@giorgioincarbone.com",
   emailHref: "mailto:giorgio.incarbone@giorgioincarbone.com",
   locations: ["Arese", "Caronno Pertusella", "Milano", "Novara"],

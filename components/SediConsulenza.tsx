@@ -49,57 +49,61 @@ export function SediConsulenza() {
                     </h3>
                     {!location.confirmed && (
                       <p className={`mt-1 ${textLabel} text-accent`}>
-                        In aggiornamento
+                        In progress
                       </p>
                     )}
                   </div>
                 </div>
 
-                <p className={`mt-4 ${textBody} text-muted`}>
-                  {location.institutionName ??
-                    "Struttura e indirizzo in definizione."}
-                </p>
-
-                {location.address && (
-                  <p className="mt-2 text-muted">
-                    {location.address}
-                  </p>
-                )}
-
-                <div className="mt-auto border-t border-border/70 pt-4">
-                  {location.websiteUrl &&
-                    location.websiteUrl !== location.bookingUrl && (
-                    <a
-                      href={location.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`mb-4 inline-flex ${textSmall} text-accent transition-colors hover:text-accent-hover`}
-                    >
-                      {location.websiteLabel ?? "Sito della struttura"}
-                    </a>
-                  )}
-
-                  <p className={`${textLabel} text-primary`}>
-                    Prenotazione
-                  </p>
-                  <a
-                    href={bookingHref}
-                    target={isExternalBooking ? "_blank" : undefined}
-                    rel={isExternalBooking ? "noopener noreferrer" : undefined}
-                    className={`mt-2 inline-flex items-center gap-2 ${textBody} text-primary transition-colors hover:text-accent`}
-                  >
-                    {!isExternalBooking && (
-                      <PhoneIcon className="h-4 w-4 text-accent" />
-                    )}
-                    {bookingLabel}
-                  </a>
-
-                  {location.bookingNote && (
-                    <p className={`mt-2 ${textBody} text-muted`}>
-                      {location.bookingNote}
+                {location.confirmed ? (
+                  <>
+                    <p className={`mt-4 ${textBody} text-muted`}>
+                      {location.institutionName ??
+                        "Struttura e indirizzo in definizione."}
                     </p>
-                  )}
-                </div>
+
+                    {location.address && (
+                      <p className="mt-2 text-muted">
+                        {location.address}
+                      </p>
+                    )}
+
+                    <div className="mt-auto border-t border-border/70 pt-4">
+                      {location.websiteUrl &&
+                        location.websiteUrl !== location.bookingUrl && (
+                        <a
+                          href={location.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`mb-4 inline-flex ${textSmall} text-accent transition-colors hover:text-accent-hover`}
+                        >
+                          {location.websiteLabel ?? "Sito della struttura"}
+                        </a>
+                      )}
+
+                      <p className={`${textLabel} text-primary`}>
+                        Prenotazione
+                      </p>
+                      <a
+                        href={bookingHref}
+                        target={isExternalBooking ? "_blank" : undefined}
+                        rel={isExternalBooking ? "noopener noreferrer" : undefined}
+                        className={`mt-2 inline-flex items-center gap-2 ${textBody} text-primary transition-colors hover:text-accent`}
+                      >
+                        {!isExternalBooking && (
+                          <PhoneIcon className="h-4 w-4 text-accent" />
+                        )}
+                        {bookingLabel}
+                      </a>
+
+                      {location.bookingNote && (
+                        <p className={`mt-2 ${textBody} text-muted`}>
+                          {location.bookingNote}
+                        </p>
+                      )}
+                    </div>
+                  </>
+                ) : null}
               </article>
             );
           })}
@@ -116,9 +120,9 @@ export function SediConsulenza() {
             Per una richiesta immediata puoi usare il modulo contatti o scrivere a{" "}
             <a
               href={SITE.emailHref}
-              className="text-accent transition-colors hover:text-accent-hover"
+              className="[overflow-wrap:anywhere] text-accent transition-colors hover:text-accent-hover"
             >
-              {SITE.email}
+              {SITE.email.replace("@", "@\u200B")}
             </a>
             .
           </p>

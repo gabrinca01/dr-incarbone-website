@@ -19,7 +19,7 @@ export function AreeEccellenza() {
               id="eccellenza-heading"
               className={`mt-4 ${textSectionTitle} text-primary`}
             >
-              Aree di eccellenza
+              Aree di interesse
             </h2>
             <p className={`prose-tight mt-4 ${textBodyLarge} text-muted`}>              Neurochirurgia cranica, spinale, funzionale / neuromodulatoria e
               vascolare — un profilo clinico completo e strutturato.

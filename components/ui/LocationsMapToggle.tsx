@@ -25,6 +25,7 @@ interface LocationsMapToggleProps {
 
 export function LocationsMapToggle({ locations }: LocationsMapToggleProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const mapLocations = locations.filter((location) => location.confirmed);
 
   return (
     <div className="mt-10">
@@ -46,7 +47,7 @@ export function LocationsMapToggle({ locations }: LocationsMapToggleProps) {
           id="locations-map-panel"
           className="mx-auto mt-6 w-full max-w-5xl animate-fade-up"
         >
-          <LocationsMap locations={locations} />
+          <LocationsMap locations={mapLocations} />
         </div>
       )}
     </div>

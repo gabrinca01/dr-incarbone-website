@@ -42,7 +42,7 @@ const variantClasses: Record<ButtonVariant, string> = {
 const sizeClasses: Record<ButtonSize, string> = {
   sm: `px-5 py-2.5 ${textButton}`,
   md: `px-7 py-3.5 ${textButton}`,
-  lg: `px-9 py-3.5 sm:px-10 sm:py-4 ${textButtonLg}`,
+  lg: `px-6 py-3.5 sm:px-10 sm:py-4 ${textButtonLg}`,
 };
 
 export function Button({
@@ -52,7 +52,7 @@ export function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const classes = `inline-flex shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-full transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent-light disabled:cursor-not-allowed disabled:opacity-50 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = `inline-flex max-w-full shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-full transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-accent-light disabled:cursor-not-allowed disabled:opacity-50 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   if ("href" in props && props.href) {
     const { href, onClick, "aria-label": ariaLabel } = props;

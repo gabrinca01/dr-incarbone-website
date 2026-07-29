@@ -21,11 +21,11 @@ export function PubblicazioniSelezionate() {
         <ol className="max-w-3xl space-y-0 divide-y divide-border/70 border-y border-border/70">
           {PUBLICATIONS.map((pub, index) => (
             <li key={pub.title} className="group py-6 sm:py-7">
-              <div className="flex gap-5 sm:gap-6">
-                <span className={`mt-0.5 w-8 shrink-0 ${textEditorialIndex} text-accent/40`}>
+              <div className="flex gap-4 sm:gap-6">
+                <span className={`mt-0.5 w-10 shrink-0 ${textEditorialIndex} text-accent/40`}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h3 className={`${textCardTitle} text-primary transition-colors group-hover:text-accent`}>
                     {pub.title}
                   </h3>

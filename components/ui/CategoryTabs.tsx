@@ -52,7 +52,7 @@ export function CategoryTabs({ categories }: CategoryTabsProps) {
           id={`panel-${activeCategory.id}`}
           role="tabpanel"
           aria-labelledby={`tab-${activeCategory.id}`}
-          className="premium-card mt-8 p-7 sm:mt-10 sm:p-9"
+          className="premium-card mt-8 p-5 sm:mt-10 sm:p-9"
         >
           <h3 className={`${textCardTitle} text-primary`}>
             {activeCategory.title}

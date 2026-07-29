@@ -58,6 +58,7 @@ body {
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 @media (min-width: 640px) {
@@ -253,8 +254,8 @@ body {
 
 /* ── Section rhythm ── */
 .section-padding {
-  padding-top: 6.5rem;
-  padding-bottom: 6.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 640px) {
@@ -285,8 +286,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   max-width: 76rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @media (min-width: 640px) {

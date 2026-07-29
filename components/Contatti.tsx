@@ -136,9 +136,9 @@ export function Contatti() {
                   content: (
                     <a
                       href={SITE.emailHref}
-                      className={`${textBodyLarge} pr-[5px] text-muted transition-colors duration-300 hover:text-accent xl:whitespace-nowrap`}
+                      className={`${textBodyLarge} [overflow-wrap:anywhere] pr-[5px] text-muted transition-colors duration-300 hover:text-accent xl:whitespace-nowrap xl:[overflow-wrap:normal]`}
                     >
-                      {SITE.email}
+                      {SITE.email.replace("@", "@\u200B")}
                     </a>
                   ),
                 },
@@ -158,22 +158,22 @@ export function Contatti() {
                   ),
                 },
               ].map((item) => (
-                <li key={item.label} className="flex items-start gap-5">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent/[0.06] text-accent">
+                <li key={item.label} className="flex items-start gap-3.5 sm:gap-5">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/[0.06] text-accent sm:h-14 sm:w-14">
                     {item.icon}
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className={`${textLabel} text-primary`}>
                       {item.label}
                     </p>
-                    <div className="mt-2">{item.content}</div>
+                    <div className="mt-2 min-w-0">{item.content}</div>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="premium-card min-w-0 p-7 sm:p-8">
+          <div className="premium-card min-w-0 p-5 sm:p-7 md:p-8">
             {isSubmitted && (
               <div
                 role="status"

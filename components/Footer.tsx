@@ -32,9 +32,9 @@ export function Footer() {
               <li>
                 <a
                   href={SITE.emailHref}
-                  className={`${textSmall} transition-colors duration-300 hover:text-white lg:whitespace-nowrap`}
+                  className={`${textSmall} [overflow-wrap:anywhere] transition-colors duration-300 hover:text-white lg:whitespace-nowrap lg:[overflow-wrap:normal]`}
                 >
-                  {SITE.email}
+                  {SITE.email.replace("@", "@\u200B")}
                 </a>
               </li>
               <li className="break-words">{SITE.locationsLabel}</li>

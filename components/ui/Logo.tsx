@@ -26,8 +26,8 @@ const VARIANTS = {
   },
   footer: {
     iconHeight:
-      "[--logo-icon-h:5.25rem] sm:[--logo-icon-h:6.25rem] md:[--logo-icon-h:7.25rem] lg:[--logo-icon-h:8.25rem]",
-    gap: "gap-3 sm:gap-4 md:gap-4",
+      "[--logo-icon-h:4.25rem] sm:[--logo-icon-h:6.25rem] md:[--logo-icon-h:7.25rem] lg:[--logo-icon-h:8.25rem]",
+    gap: "gap-2.5 sm:gap-4 md:gap-4",
   },
   subtle: {
     iconHeight:
@@ -80,7 +80,7 @@ export function Logo({ variant = "navbar", className = "" }: LogoProps) {
 
   if (variant === "footer") {
     return (
-      <div className="inline-flex w-fit max-w-full rounded-xl bg-white px-6 py-5 shadow-editorial sm:px-8 sm:py-6 lg:px-10 lg:py-7">
+      <div className="inline-flex w-fit max-w-full rounded-xl bg-white px-4 py-4 shadow-editorial sm:px-8 sm:py-6 lg:px-10 lg:py-7">
         {lockup}
       </div>
     );

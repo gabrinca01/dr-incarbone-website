@@ -27,7 +27,7 @@ export function Neuromodulazione() {
           {NEUROMODULATION_TECHNIQUES.map((technique) => (
             <article
               key={technique.acronym}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-colors duration-500 hover:border-accent/40 hover:bg-white/[0.07] sm:p-8"
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-500 hover:border-accent/40 hover:bg-white/[0.07] sm:p-7 md:p-8"
             >
               <p className={`${textStat} text-accent-light`}>
                 {technique.acronym}

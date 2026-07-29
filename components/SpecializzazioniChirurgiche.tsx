@@ -29,7 +29,7 @@ export function SpecializzazioniChirurgiche() {
           {SURGICAL_SPECIALIZATIONS.map((area) => (
             <article
               key={area.title}
-              className="premium-card min-w-0 p-8 sm:p-9 lg:p-10"
+              className="premium-card min-w-0 p-5 sm:p-8 md:p-9 lg:p-10"
             >
               <div className="mb-6 inline-flex rounded-xl bg-accent/[0.06] p-3.5">
                 <ClinicalAreaIcon icon={area.icon} />
