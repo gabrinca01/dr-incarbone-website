@@ -52,6 +52,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     "/",
-    "/((?!_next/static|_next/image|favicon.ico|sw.js|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|css|js)$).*)",
+    // Keep robots.txt and sitemap.xml crawlable even when preview auth is on
+    "/((?!_next/static|_next/image|favicon.ico|sw.js|robots\\.txt$|sitemap\\.xml$|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|css|js)$).*)",
   ],
 };

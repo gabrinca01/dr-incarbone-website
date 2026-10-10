@@ -33,8 +33,12 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/logo-giorgio.png",
-    apple: "/logo-giorgio.png",
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/icon-192.png", sizes: "180x180", type: "image/png" }],
   },
   twitter: {
     card: "summary_large_image",
